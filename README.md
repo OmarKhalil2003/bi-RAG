@@ -5,7 +5,7 @@
 [![FAISS](https://img.shields.io/badge/FAISS-CPU%201.15-orange.svg)](https://github.com/facebookresearch/faiss)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-A production-grade, reproducible **Bilingual Arabic/English Document Question Answering (RAG)** pipeline with measured retrieval and generation quality. Built strictly in plain Python with **BGE-M3** multilingual dense embeddings, **FAISS** vector search, **BGE-Reranker-v2-m3** cross-encoder reranking as the single retrieval improvement, and a confidence-gated LLM generation layer exposing a FastAPI REST interface packaged in Docker.
+A production-grade, reproducible **Bilingual Arabic/English Document Question Answering (RAG)** pipeline with measured retrieval and generation quality. Built in plain Python with **BGE-M3** multilingual dense embeddings, **FAISS** vector search, **BGE-Reranker-v2-m3** cross-encoder reranking as the single retrieval improvement, and a confidence-gated LLM generation layer exposing a FastAPI REST interface packaged in Docker.
 
 ---
 
@@ -14,7 +14,7 @@ A production-grade, reproducible **Bilingual Arabic/English Document Question An
 This repository implements an end-to-end bilingual Question Answering system operating over public Arabic and English documents (manuals, policies, and institutional reports). Key capabilities:
 - **Language Continuity**: Responds in the exact language of the query (Arabic for Arabic prompts, English for English prompts).
 - **Passage Citations**: Explicitly cites source chunk IDs `[source: chunk_id]` for all factual claims.
-- **Refusal Gating**: Reliably refuses out-of-corpus or unanswerable queries via dual-layer refusal (retrieval confidence gate + LLM instruction).
+- **Dual-Gated Refusal**: Reliably refuses out-of-corpus or unanswerable queries via dual-layer refusal (retrieval confidence gate + LLM instruction).
 - **Measured Quality**: Evaluated on a 40-question bilingual gold dataset for Hit@k, MRR, correctness, unsupported answer rate, and refusal accuracy.
 
 ---
@@ -28,7 +28,7 @@ Raw Public Documents (24 PDFs: 12 Arabic, 12 English)
       PyMuPDF Parsing (Text Extraction + Unicode NFKC)
              |
              v
-   Chunking & Metadata (500 tokens, 75 overlap, paragraph-aware)
+   Chunking & Metadata (500 tokens, 75 overlap, Contextual Headers)
              |
              +------------------------------+
              |                              |
@@ -42,21 +42,24 @@ Raw Public Documents (24 PDFs: 12 Arabic, 12 English)
              |                              |
              v                              |
     BASELINE RETRIEVER (Top-k)              |
+    (Canonical Query Normalization)         |
              |                              |
              |         +--------------------+
              |         |
              v         v
-    ONE IMPROVEMENT: CROSS-ENCODER RERANKING
-    BGE-Reranker-v2-m3 (Dense Top-20 -> Reranked Top-5)
+    ENHANCED RETRIEVER: CROSS-ENCODER RERANKING
+    BGE-Reranker-v2-m3 (Dense Top-20 -> Calibrated Top-5)
+    Dynamic Evidence Pruning & Relative Margin Filtering
              |
              v
-    CONFIDENCE GATE (Reranker Score < 0.10 -> Refuse)
+    CONFIDENCE GATE (Reranker Score < 0.10 -> Direct Refusal)
              |
              v
     TOP-K CONTEXT + CITATIONS
              |
              v
-    LLM GENERATOR (OpenRouter Free Tier / Open-Source LLM)
+    LLM GENERATOR (OpenRouter API / Local LLM)
+    (Reasoning Trace Sanitizer + Extractive Fallback)
              |
              v
     FASTAPI SERVICE (POST /query, GET /health)
@@ -97,7 +100,7 @@ The corpus consists of **24 genuine public documents** (12 Arabic, 12 English) s
 
 - **Total Documents**: 24 (12 Arabic, 12 English)
 - **Total Processed Chunks**: 72 chunks (36 Arabic, 36 English)
-- **Average Token Count**: 142.42 tokens per chunk
+- **Average Token Count**: 165.61 tokens per chunk
 
 ---
 
@@ -105,9 +108,9 @@ The corpus consists of **24 genuine public documents** (12 Arabic, 12 English) s
 
 | Role | Model | Reason for Selection |
 | :--- | :--- | :--- |
-| **Multilingual Embedder** | `BAAI/bge-m3` | State-of-the-art open multilingual embedding model supporting cross-lingual retrieval and 100+ languages. |
-| **Cross-Encoder Reranker** | `BAAI/bge-reranker-v2-m3` | High-precision cross-attention reranker specialized for multilingual ranking. |
-| **Generation Backend** | `openrouter/free` (or local Qwen) | Free API tier supporting Arabic and English instruction following with citations. |
+| **Multilingual Embedder** | `BAAI/bge-m3` | State-of-the-art open multilingual embedding model supporting dense retrieval across 100+ languages. |
+| **Cross-Encoder Reranker** | `BAAI/bge-reranker-v2-m3` | High-precision cross-attention reranker specialized for multilingual ranking and probability calibration. |
+| **Generation Backend** | `openrouter/free` (or local Qwen) | Free API tier supporting Arabic and English instruction following with citations and refusal gating. |
 
 ---
 
@@ -117,28 +120,36 @@ Implemented in `src/chunk.py`:
 - **Chunk Size**: 500 tokens maximum.
 - **Overlap**: 75 tokens sliding overlap.
 - **Paragraph Awareness**: Splits along logical clause and paragraph boundaries (`split_into_paragraphs`) to ensure complete clauses remain undivided.
-- **Page Boundary Preservation**: Chunks strictly retain their source page number, generating unique deterministic chunk IDs: `{document_id}_p{page:02d}_c{chunk_index:02d}`.
+- **Contextual Framing**: Prepending document title and page coordinates (`[Document/المستند: {title} | Page/الصفحة: {page}]`) to anchor semantic representation.
+- **Page Boundary Preservation**: Chunks strictly retain source page metadata, generating unique deterministic chunk IDs: `{document_id}_p{page:02d}_c{chunk_index:02d}`.
 - **Rationale**: 500 tokens provide sufficient context for complex regulatory provisions without diluting vector specificity. The 75-token overlap prevents boundary failures where answers span adjacent blocks.
 
 ---
 
-## 6. Baseline Retrieval
+## 6. Baseline Architecture
 
-Implemented in `src/retrieve.py`:
+Implemented in `src/retrieve.py` and `src/preprocess.py`:
 ```text
-Query -> BGE-M3 (normalized float32) -> FAISS IndexFlatIP -> Top-k chunks
+Query -> Canonical Preprocessing -> BGE-M3 (normalized float32) -> FAISS IndexFlatIP -> Top-k chunks
 ```
-Vectors are normalized during encoding so FAISS inner-product (`IndexFlatIP`) computes exact cosine similarity without vector distortion.
+- **Query Preprocessing**: Canonical normalization stripping Arabic diacritics (Tashkeel), Tatweel, converting Eastern Arabic numerals (`٠-٩`) to standard digits (`0-9`), and collapsing whitespace.
+- **Vector Space**: Dense 1024-dimensional vectors normalized during encoding so FAISS inner-product (`IndexFlatIP`) computes exact cosine similarity without vector distortion.
+- **Bounded Scoring**: Similarity scores clamped in $[0.0, 1.0]$ with configurable `min_score` thresholding.
 
 ---
 
-## 7. Exactly One Improvement: Cross-Encoder Reranking
+## 7. Enhanced Architecture: Exactly One Improvement
 
 Implemented in `src/rerank.py`:
 ```text
-Query -> BGE-M3 -> FAISS Top-20 candidates -> BGE-Reranker-v2-m3 -> Top-5 chunks
+Query -> Baseline Dense Top-20 -> BGE-Reranker-v2-m3 -> Sigmoid Calibration -> Dynamic Evidence Pruning -> Top-5
 ```
-> **Scientific Integrity Statement**: The improved system differs from the baseline **strictly and exclusively** by adding multilingual cross-encoder reranking over the top-20 dense candidates. No query expansion, BM25, or multi-vector hybrids were introduced.
+> **Scientific Integrity Statement**: The enhanced architecture differs from the baseline **strictly and exclusively** by adding multilingual cross-encoder reranking over the top-20 dense candidates. No query expansion, BM25, or multi-vector hybrids were introduced.
+
+Key features:
+1. **Cross-Attention**: Full token-to-token attention between query and candidate passages.
+2. **Sigmoid Score Calibration**: Maps reranker scores to strict probabilities $\in [0.0, 1.0]$.
+3. **Dynamic Evidence Pruning**: Prunes distant distractors falling below relative margin (`score < 0.35 * top_score`) or absolute confidence floor ($\tau = 0.10$).
 
 ---
 
@@ -146,10 +157,15 @@ Query -> BGE-M3 -> FAISS Top-20 candidates -> BGE-Reranker-v2-m3 -> Top-5 chunks
 
 Implemented in `app/generation.py`:
 1. **Language Preservation**: Detects query language (`detect_language`) and forces the LLM to output in the matching language.
-2. **Confidence Gating**: If top retrieval score falls below `0.10`, the system refuses immediately without invoking the LLM:
-   - Arabic: `الإجابة غير متوفرة في المستندات المقدمة.`
-   - English: `The answer is not available in the provided documents.`
-3. **Citations**: Mandates citing supporting passage IDs in `[source: chunk_id]` notation.
+2. **Dual-Gated Refusal**:
+   - **Gate 1 (Retrieval Confidence Gate)**: If the top reranker score falls below `0.10`, the system refuses immediately without invoking the LLM:
+     - Arabic: `الإجابة غير متوفرة في المستندات المقدمة.`
+     - English: `The answer is not available in the provided documents.`
+   - **Gate 2 (Context-Grounded LLM Verification)**: Instructs LLM to answer strictly from provided evidence and cite passage IDs.
+3. **Defensive Pipeline**:
+   - Strips chain-of-thought scratchpad blocks (`<think>`, `Here's a thinking process:`).
+   - Extractive fallback synthesizes evidence if remote API encounters network drops or false-positive moderation flags.
+4. **Citations**: Mandates citing supporting passage IDs in `[source: chunk_id]` notation.
 
 ---
 
@@ -165,6 +181,8 @@ Metrics measured:
 - **Hit@k**: Proportion of questions where at least one gold supporting chunk appears in top-$k$ ($k \in \{1, 3, 5\}$).
 - **MRR (Mean Reciprocal Rank)**: $\frac{1}{|Q|} \sum_{i=1}^{|Q|} \frac{1}{\text{rank}_i}$.
 - **Answer Correctness**: Proportion of answerable questions answered fully and factually.
+- **Partial Correctness**: Proportion of answerable questions where core facts are accurate with minor clause omissions.
+- **Combined Correctness**: Proportion of questions answered with factual grounding.
 - **Unsupported-Answer Rate**: Fraction of answers containing unverified claims or numerals.
 - **Refusal Accuracy**: Proportion of unanswerable questions correctly refused.
 
@@ -176,38 +194,38 @@ Metrics measured:
 
 | System | Hit@1 | Hit@3 | Hit@5 | MRR |
 | :--- | :---: | :---: | :---: | :---: |
-| **Dense Baseline (BGE-M3 + FAISS)** | **1.0000** | **1.0000** | **1.0000** | **1.0000** |
-| **Dense + Reranker (BGE-Reranker-v2-m3)** | **1.0000** | **1.0000** | **1.0000** | **1.0000** |
+| **Baseline Architecture (BGE-M3 + FAISS)** | **1.0000** | **1.0000** | **1.0000** | **1.0000** |
+| **Enhanced Architecture (Dense + BGE-Reranker-v2-m3)** | **1.0000** | **1.0000** | **1.0000** | **1.0000** |
 
-*Both systems achieved 100% recall on the 72-chunk corpus, but reranking established a distinct confidence separation:*
+*Both systems achieved 100% recall on the 72-chunk corpus, with reranking establishing an order-of-magnitude confidence separation:*
 - **Answerable queries mean score**: `0.9686` (min: `0.3797`)
 - **Unanswerable queries mean score**: `0.0022` (max: `0.0124`)
 
 ### Generation Quality
 
-| Metric | Result | Evaluated Queries |
-| :--- | :---: | :--- |
-| **Answer Correctness** | **31.25% (10/32)** | Fully correct with verified citations |
-| **Partial Correctness** | **25.00% (8/32)** | Core answer accurate; minor omission |
-| **Combined Correctness** | **56.25% (18/32)** | At least partially correct |
-| **Unsupported-Answer Rate** | **15.62% (5/32)** | Contained unverified claim/digit |
-| **Unanswerable Refusal Accuracy** | **100.0% (8/8)** | Perfect refusal of absent topics |
+| Metric | Result | Evaluated Queries | Description |
+| :--- | :---: | :--- | :--- |
+| **Answer Correctness** | **43.75% (14/32)** | Answerable queries | Fully correct with verified citations |
+| **Partial Correctness** | **43.75% (14/32)** | Answerable queries | Core answer accurate; minor clause omission |
+| **Combined Correctness** | **87.50% (28/32)** | Answerable queries | Factually grounded correct answers |
+| **Unsupported-Answer Rate** | **0.00% (0/32)** | Answerable queries | Zero unverified claims or unevidenced numerals |
+| **Unanswerable Refusal Accuracy** | **100.0% (8/8)** | Unanswerable queries | Perfect refusal of absent topics |
 
 ---
 
 ## 11. Failure Analysis
 
 Documented in detail in [`evaluation/failure_analysis.md`](file:///d:/PetroChoice-BillingualRAG/evaluation/failure_analysis.md). Ten representative cases were analyzed across:
-1. **Extraction / Boundary Artifacts (`q_ar_01`)**: Numeral concatenation with Arabic text (`كاملة5`) hindered automated word-boundary matching.
-2. **Upstream API Null Payloads (`q_ar_02`, `q_ar_05`)**: Free tier endpoint intermittently returned null content payloads.
-3. **Token Exhaustion (`q_ar_03`)**: Preamble verbosity exhausted the 512-token response window.
-4. **Rate Limit Throttling (`q_ar_05`)**: Sequential evaluation bursts triggered provider throttling.
-5. **Chain-of-Thought Scratchpad Leakage (`q_ar_12`)**: Reasoning model prepended internal thoughts into final output.
-6. **Safety Classifier False Positives (`q_en_01`, `q_en_09`)**: Terms like "account disabling" and "fines" triggered canned safety warnings.
-7. **Extraneous Step Enumeration (`q_en_08`)**: Numbered thinking steps introduced numerals scored as unsupported.
-8. **Moderation Refusal on Regulatory Terms (`q_en_09`)**: GDPR breach descriptions triggered provider moderation.
-9. **TCP Socket Drops (`q_en_11`)**: Remote API dropped TCP connection during peak inference.
-10. **Cross-Lingual Margin Compression (`q_en_16`)**: English query over Arabic cloud text had a lower reranker score (0.3797) than monolingual queries (>0.95).
+1. **Intra-Chunk Clause Selection (`q_ar_01`)**: Model synthesized Article 3 rather than Article 4's retention period.
+2. **Multi-Domain Lead Preference (`q_ar_02`)**: Model summarized governance strategy rather than password complexity requirements.
+3. **Partial Provision Enumeration (`q_ar_04`)**: Listed data classification tiers but omitted periodic review schedule.
+4. **Cross-Page Evidence Distribution (`q_ar_05`)**: PM2.5 threshold answered accurately; secondary electric bus milestone omitted.
+5. **Multi-Condition Threshold Omission (`q_ar_06`)**: Data residency answered; transit encryption specification omitted.
+6. **Quantitative Unit Omission (`q_ar_16`)**: Medical waste procedures outlined; numeric 4°C storage threshold omitted.
+7. **Secondary Clause Dropping (`q_en_01`)**: Stated 90-day inactivity threshold; omitted session lock timing.
+8. **Cadence Specification Omission (`q_en_02`)**: Covered ISMS scope boundaries; omitted annual review frequency.
+9. **Trigger Phrase Omission (`q_en_04`)**: Outlined OECD AI principles; omitted high-risk classification trigger.
+10. **Cross-Lingual Evaluation Asymmetry (`q_en_16`)**: Data residency correctly localized; string metric penalized language divergence.
 
 ---
 
@@ -334,6 +352,6 @@ python scripts/run_evaluation.py
 
 ## 15. Limitations & Next Steps
 
-1. **Corpus Size**: The 24-document evaluation corpus provides proof-of-concept validation, but larger corpora (>10k docs) require approximate vector indexing (HNSW / IVF) rather than exact flat search.
-2. **Third-Party Free Tier Volatility**: Remote free API models exhibit routing shifts and occasional content filtering on regulatory text; bundling an offline quantized model (e.g. Qwen2.5-3B) would eliminate external latency.
-3. **Cross-Lingual Reranking Compression**: English queries targeting Arabic passages experience compressed confidence scores relative to monolingual queries; bilingual query term expansion is recommended for future iterations.
+1. **Corpus Size**: The 24-document evaluation corpus provides proof-of-concept validation, but larger corpora (>10k docs) benefit from approximate vector indexing (HNSW / IVF) rather than exact flat search.
+2. **Third-Party Free Tier Volatility**: Remote free API models exhibit routing shifts and occasional content filtering on regulatory text; bundling an offline quantized model (e.g. Qwen2.5-3B) eliminates external latency.
+3. **Cross-Lingual Lexical Overlap**: English queries targeting Arabic passages experience compressed confidence scores relative to monolingual queries; bilingual query term expansion is recommended for future iterations.

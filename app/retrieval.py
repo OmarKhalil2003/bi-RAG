@@ -43,10 +43,18 @@ class RetrievalService:
         self,
         query: str,
         top_k: int = 5,
-        candidate_k: int = 20
+        candidate_k: int = 20,
+        min_score: float = 0.0,
+        relative_margin: float = 0.0
     ) -> List[Dict[str, Any]]:
         """Perform retrieval using improved retriever if available, else baseline."""
         if self.use_reranking and self.improved is not None:
-            return self.improved.retrieve(query, candidate_k=candidate_k, top_k=top_k)
+            return self.improved.retrieve(
+                query,
+                candidate_k=candidate_k,
+                top_k=top_k,
+                min_score=min_score,
+                relative_margin=relative_margin
+            )
         else:
-            return self.baseline.retrieve(query, top_k=top_k)
+            return self.baseline.retrieve(query, top_k=top_k, min_score=min_score)

@@ -15,7 +15,7 @@
     },
     {
       "page": 3,
-      "text": "NIST SP 800-53 Rev 5: Security and Privacy Controls for Information Systems\nSection SC-8: Transmission Confidentiality and Integrity Protection\nInformation systems must protect the confidentiality and integrity of transmitted data across external and internal networks.\nAll cryptographic modules used for data in transit and at rest must be validated under FIPS 140-2 or FIPS 140-3 standards.\nLegacy encryption algorithms such as DES, 3DES, and RC4 are explicitly prohibited across federal production systems.\nSection CP-9: System Backup Redundancy and Off-Site Storage\nSystem-level backups must be conducted daily for transactional data and weekly for complete system operating images.\nBackup media must be stored at a geographically distinct off-site location protected by equivalent physical security controls."
+      "text": "NIST SP 800-53 Rev 5: Security and Privacy Controls for Information Systems\nSection SC-8: Transmission Confidentiality and Integrity Protection\nInformation systems must protect the confidentiality and integrity of transmitted data across external and internal networks.\nAll cryptographic modules used for data in transit and at rest must be validated under FIPS 140-2 or FIPS 140-3 standards.\nLegacy encryption algorithms such as DES, 3 DES, and RC 4 are explicitly prohibited across federal production systems.\nSection CP-9: System Backup Redundancy and Off-Site Storage\nSystem-level backups must be conducted daily for transactional data and weekly for complete system operating images.\nBackup media must be stored at a geographically distinct off-site location protected by equivalent physical security controls."
     }
   ]
 }

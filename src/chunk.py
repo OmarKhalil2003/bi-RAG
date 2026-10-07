@@ -83,7 +83,9 @@ def chunk_document_page(
         
         # If adding this paragraph exceeds chunk_size and we already have content
         if current_tokens + para_tokens > chunk_size and current_chunk_paras:
-            chunk_text = "\n\n".join(current_chunk_paras).strip()
+            raw_text = "\n\n".join(current_chunk_paras).strip()
+            header = f"[{'المستند' if language == 'ar' else 'Document'}: {title} | {'الصفحة' if language == 'ar' else 'Page'}: {page_num}]"
+            chunk_text = f"{header}\n\n{raw_text}"
             chunk_id = f"{doc_id}_p{page_num:02d}_c{chunk_idx:02d}"
             chunks.append({
                 "chunk_id": chunk_id,
@@ -114,7 +116,9 @@ def chunk_document_page(
             current_tokens += para_tokens
             
     if current_chunk_paras:
-        chunk_text = "\n\n".join(current_chunk_paras).strip()
+        raw_text = "\n\n".join(current_chunk_paras).strip()
+        header = f"[{'المستند' if language == 'ar' else 'Document'}: {title} | {'الصفحة' if language == 'ar' else 'Page'}: {page_num}]"
+        chunk_text = f"{header}\n\n{raw_text}"
         chunk_id = f"{doc_id}_p{page_num:02d}_c{chunk_idx:02d}"
         chunks.append({
             "chunk_id": chunk_id,

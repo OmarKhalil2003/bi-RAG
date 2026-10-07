@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-07T10:10:38Z",
+  "timestamp": "2026-10-07T15:23:38Z",
   "dataset": "evaluation/gold.jsonl",
   "total_answerable_evaluated": 32,
   "baseline": {
@@ -39,9 +39,9 @@
         "retrieved_ids": [
           "doc_ar_02_p01_c01",
           "doc_ar_02_p02_c01",
-          "doc_en_01_p02_c01",
+          "doc_ar_02_p03_c01",
           "doc_ar_11_p01_c01",
-          "doc_ar_02_p03_c01"
+          "doc_en_01_p02_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -72,8 +72,8 @@
         "language": "ar",
         "question": "ما هي مستويات تصنيف البيانات الأربعة في الدليل الإرشادي الوطني وما هي خوارزمية التشفير المعتمدة للبيانات السرية؟",
         "gold_ids": [
-          "doc_ar_04_p02_c01",
-          "doc_ar_04_p01_c01"
+          "doc_ar_04_p01_c01",
+          "doc_ar_04_p02_c01"
         ],
         "retrieved_ids": [
           "doc_ar_04_p01_c01",
@@ -96,11 +96,11 @@
           "doc_ar_05_p02_c01"
         ],
         "retrieved_ids": [
-          "doc_ar_05_p01_c01",
           "doc_ar_05_p02_c01",
+          "doc_ar_05_p01_c01",
           "doc_en_03_p02_c01",
           "doc_en_03_p03_c01",
-          "doc_en_10_p01_c01"
+          "doc_en_03_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -112,8 +112,8 @@
         "language": "ar",
         "question": "أين يجب استضافة البيانات الحكومية الحساسة وما هي نسبة التوفرية المطلوبة وفق سياسة الحوسبة السحابية؟",
         "gold_ids": [
-          "doc_ar_06_p01_c01",
-          "doc_ar_06_p02_c01"
+          "doc_ar_06_p02_c01",
+          "doc_ar_06_p01_c01"
         ],
         "retrieved_ids": [
           "doc_ar_06_p01_c01",
@@ -139,8 +139,8 @@
           "doc_ar_07_p01_c01",
           "doc_ar_07_p02_c01",
           "doc_en_03_p03_c01",
-          "doc_en_03_p01_c01",
-          "doc_en_03_p02_c01"
+          "doc_en_03_p02_c01",
+          "doc_en_06_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -159,7 +159,7 @@
           "doc_en_09_p02_c01",
           "doc_en_01_p01_c01",
           "doc_ar_08_p03_c01",
-          "doc_en_11_p03_c01"
+          "doc_ar_11_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -171,8 +171,8 @@
         "language": "ar",
         "question": "ما هي الضوابط المتعلقة بإدخال البيانات المصنفة في أدوات الذكاء الاصطناعي التوليدي العامة وما هي شروط الإفصاح عن المحتوى؟",
         "gold_ids": [
-          "doc_ar_09_p02_c01",
-          "doc_ar_09_p01_c01"
+          "doc_ar_09_p01_c01",
+          "doc_ar_09_p02_c01"
         ],
         "retrieved_ids": [
           "doc_ar_09_p01_c01",
@@ -191,15 +191,15 @@
         "language": "ar",
         "question": "كم تبلغ نسبة مساهمة محطات التحلية في الإمداد المائي البلدي وما هو مستهدف خفض استهلاك الفرد اليومي من المياه بحلول 2030؟",
         "gold_ids": [
-          "doc_ar_10_p02_c01",
-          "doc_ar_10_p01_c01"
+          "doc_ar_10_p01_c01",
+          "doc_ar_10_p02_c01"
         ],
         "retrieved_ids": [
           "doc_ar_10_p01_c01",
           "doc_ar_10_p02_c01",
           "doc_ar_05_p02_c01",
-          "doc_ar_05_p01_c01",
-          "doc_ar_05_p03_c01"
+          "doc_ar_05_p03_c01",
+          "doc_ar_05_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -211,14 +211,14 @@
         "language": "ar",
         "question": "ما هو الحد الأقصى لزمن احتواء الحوادث السيبرانية من المستوى الحرج P1 وما هي الخوارزمية المستخدمة للتحقق من سلامة الأدلة الجنائية؟",
         "gold_ids": [
-          "doc_ar_11_p01_c01",
-          "doc_ar_11_p02_c01"
+          "doc_ar_11_p02_c01",
+          "doc_ar_11_p01_c01"
         ],
         "retrieved_ids": [
           "doc_ar_11_p01_c01",
           "doc_ar_11_p02_c01",
+          "doc_ar_02_p03_c01",
           "doc_ar_11_p03_c01",
-          "doc_ar_06_p02_c01",
           "doc_en_11_p02_c01"
         ],
         "reciprocal_rank": 1.0,
@@ -256,8 +256,8 @@
           "doc_ar_07_p03_c01",
           "doc_ar_07_p01_c01",
           "doc_ar_07_p02_c01",
-          "doc_ar_02_p03_c01",
-          "doc_en_06_p02_c01"
+          "doc_en_06_p02_c01",
+          "doc_ar_02_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -276,7 +276,7 @@
           "doc_en_09_p03_c01",
           "doc_ar_08_p02_c01",
           "doc_ar_08_p01_c01",
-          "doc_en_01_p01_c01"
+          "doc_ar_01_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -292,10 +292,10 @@
         ],
         "retrieved_ids": [
           "doc_ar_10_p03_c01",
-          "doc_ar_10_p02_c01",
           "doc_ar_10_p01_c01",
+          "doc_ar_10_p02_c01",
           "doc_ar_06_p02_c01",
-          "doc_en_10_p03_c01"
+          "doc_ar_02_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -332,8 +332,8 @@
           "doc_en_01_p01_c01",
           "doc_en_01_p02_c01",
           "doc_en_11_p03_c01",
-          "doc_ar_06_p02_c01",
-          "doc_ar_11_p03_c01"
+          "doc_ar_11_p03_c01",
+          "doc_en_01_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -410,7 +410,7 @@
           "doc_en_05_p01_c01",
           "doc_en_05_p03_c01",
           "doc_en_10_p02_c01",
-          "doc_en_03_p01_c01"
+          "doc_en_10_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -468,7 +468,7 @@
           "doc_en_01_p03_c01",
           "doc_en_08_p03_c01",
           "doc_en_11_p02_c01",
-          "doc_ar_04_p02_c01"
+          "doc_ar_02_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -480,14 +480,14 @@
         "language": "en",
         "question": "What is the mandatory timeframe for notifying a supervisory authority of a data breach under GDPR Article 33, and what are the maximum administrative fines under Article 83?",
         "gold_ids": [
-          "doc_en_09_p03_c01",
-          "doc_en_09_p02_c01"
+          "doc_en_09_p02_c01",
+          "doc_en_09_p03_c01"
         ],
         "retrieved_ids": [
           "doc_en_09_p02_c01",
           "doc_en_09_p03_c01",
           "doc_ar_08_p02_c01",
-          "doc_en_01_p01_c01",
+          "doc_en_09_p01_c01",
           "doc_ar_01_p03_c01"
         ],
         "reciprocal_rank": 1.0,
@@ -505,8 +505,8 @@
         "retrieved_ids": [
           "doc_en_10_p01_c01",
           "doc_en_10_p03_c01",
-          "doc_en_07_p02_c01",
           "doc_en_10_p02_c01",
+          "doc_en_07_p02_c01",
           "doc_en_07_p03_c01"
         ],
         "reciprocal_rank": 1.0,
@@ -519,8 +519,8 @@
         "language": "en",
         "question": "What are the five operational phases of the incident response lifecycle in the CISA playbook, and what hashing algorithm is required for forensic images?",
         "gold_ids": [
-          "doc_en_11_p02_c01",
-          "doc_en_11_p01_c01"
+          "doc_en_11_p01_c01",
+          "doc_en_11_p02_c01"
         ],
         "retrieved_ids": [
           "doc_en_11_p01_c01",
@@ -547,7 +547,7 @@
           "doc_en_12_p01_c01",
           "doc_en_12_p03_c01",
           "doc_en_04_p01_c01",
-          "doc_ar_03_p01_c01"
+          "doc_en_02_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -563,10 +563,10 @@
         ],
         "retrieved_ids": [
           "doc_en_03_p03_c01",
-          "doc_en_03_p01_c01",
           "doc_en_03_p02_c01",
+          "doc_en_03_p01_c01",
           "doc_ar_07_p01_c01",
-          "doc_en_06_p02_c01"
+          "doc_ar_05_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -582,10 +582,10 @@
         ],
         "retrieved_ids": [
           "doc_en_11_p03_c01",
-          "doc_en_11_p01_c01",
           "doc_ar_02_p03_c01",
-          "doc_en_01_p01_c01",
-          "doc_en_11_p02_c01"
+          "doc_en_11_p01_c01",
+          "doc_en_11_p02_c01",
+          "doc_en_01_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -621,8 +621,8 @@
         "retrieved_ids": [
           "doc_ar_06_p01_c01",
           "doc_en_08_p02_c01",
-          "doc_ar_06_p03_c01",
           "doc_en_08_p03_c01",
+          "doc_ar_06_p03_c01",
           "doc_en_01_p03_c01"
         ],
         "reciprocal_rank": 1.0,
@@ -652,7 +652,7 @@
           "doc_ar_01_p03_c01",
           "doc_ar_01_p01_c01",
           "doc_ar_04_p03_c01",
-          "doc_ar_06_p03_c01"
+          "doc_ar_02_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -671,7 +671,7 @@
           "doc_ar_02_p02_c01",
           "doc_ar_02_p03_c01",
           "doc_en_01_p02_c01",
-          "doc_ar_11_p03_c01"
+          "doc_ar_11_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -702,15 +702,15 @@
         "language": "ar",
         "question": "ما هي مستويات تصنيف البيانات الأربعة في الدليل الإرشادي الوطني وما هي خوارزمية التشفير المعتمدة للبيانات السرية؟",
         "gold_ids": [
-          "doc_ar_04_p02_c01",
-          "doc_ar_04_p01_c01"
+          "doc_ar_04_p01_c01",
+          "doc_ar_04_p02_c01"
         ],
         "retrieved_ids": [
           "doc_ar_04_p01_c01",
           "doc_ar_04_p02_c01",
           "doc_ar_01_p02_c01",
           "doc_ar_04_p03_c01",
-          "doc_ar_11_p02_c01"
+          "doc_en_01_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -742,15 +742,15 @@
         "language": "ar",
         "question": "أين يجب استضافة البيانات الحكومية الحساسة وما هي نسبة التوفرية المطلوبة وفق سياسة الحوسبة السحابية؟",
         "gold_ids": [
-          "doc_ar_06_p01_c01",
-          "doc_ar_06_p02_c01"
+          "doc_ar_06_p02_c01",
+          "doc_ar_06_p01_c01"
         ],
         "retrieved_ids": [
           "doc_ar_06_p01_c01",
           "doc_ar_06_p02_c01",
           "doc_ar_06_p03_c01",
           "doc_ar_12_p02_c01",
-          "doc_ar_01_p02_c01"
+          "doc_ar_01_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -770,7 +770,7 @@
           "doc_ar_07_p02_c01",
           "doc_en_09_p02_c01",
           "doc_en_03_p02_c01",
-          "doc_ar_11_p03_c01"
+          "doc_ar_05_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -801,15 +801,15 @@
         "language": "ar",
         "question": "ما هي الضوابط المتعلقة بإدخال البيانات المصنفة في أدوات الذكاء الاصطناعي التوليدي العامة وما هي شروط الإفصاح عن المحتوى؟",
         "gold_ids": [
-          "doc_ar_09_p02_c01",
-          "doc_ar_09_p01_c01"
+          "doc_ar_09_p01_c01",
+          "doc_ar_09_p02_c01"
         ],
         "retrieved_ids": [
           "doc_ar_09_p01_c01",
           "doc_ar_09_p02_c01",
           "doc_ar_03_p01_c01",
-          "doc_ar_03_p02_c01",
-          "doc_ar_09_p03_c01"
+          "doc_ar_09_p03_c01",
+          "doc_ar_03_p02_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -821,15 +821,15 @@
         "language": "ar",
         "question": "كم تبلغ نسبة مساهمة محطات التحلية في الإمداد المائي البلدي وما هو مستهدف خفض استهلاك الفرد اليومي من المياه بحلول 2030؟",
         "gold_ids": [
-          "doc_ar_10_p02_c01",
-          "doc_ar_10_p01_c01"
+          "doc_ar_10_p01_c01",
+          "doc_ar_10_p02_c01"
         ],
         "retrieved_ids": [
           "doc_ar_10_p01_c01",
           "doc_ar_10_p02_c01",
-          "doc_ar_10_p03_c01",
           "doc_en_07_p03_c01",
-          "doc_ar_05_p02_c01"
+          "doc_ar_10_p03_c01",
+          "doc_ar_05_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -841,15 +841,15 @@
         "language": "ar",
         "question": "ما هو الحد الأقصى لزمن احتواء الحوادث السيبرانية من المستوى الحرج P1 وما هي الخوارزمية المستخدمة للتحقق من سلامة الأدلة الجنائية؟",
         "gold_ids": [
-          "doc_ar_11_p01_c01",
-          "doc_ar_11_p02_c01"
+          "doc_ar_11_p02_c01",
+          "doc_ar_11_p01_c01"
         ],
         "retrieved_ids": [
           "doc_ar_11_p01_c01",
           "doc_ar_11_p02_c01",
           "doc_ar_11_p03_c01",
           "doc_ar_02_p01_c01",
-          "doc_ar_02_p02_c01"
+          "doc_ar_02_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -887,7 +887,7 @@
           "doc_ar_07_p02_c01",
           "doc_ar_07_p01_c01",
           "doc_ar_02_p03_c01",
-          "doc_ar_02_p02_c01"
+          "doc_ar_11_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -906,7 +906,7 @@
           "doc_en_09_p03_c01",
           "doc_ar_08_p01_c01",
           "doc_ar_08_p02_c01",
-          "doc_en_09_p02_c01"
+          "doc_ar_01_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -925,7 +925,7 @@
           "doc_ar_10_p01_c01",
           "doc_ar_10_p02_c01",
           "doc_ar_07_p03_c01",
-          "doc_en_07_p03_c01"
+          "doc_ar_07_p02_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -943,8 +943,8 @@
           "doc_en_01_p01_c01",
           "doc_ar_11_p03_c01",
           "doc_ar_01_p02_c01",
-          "doc_en_01_p02_c01",
-          "doc_ar_06_p02_c01"
+          "doc_ar_06_p02_c01",
+          "doc_en_01_p02_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -962,8 +962,8 @@
           "doc_en_01_p01_c01",
           "doc_en_01_p02_c01",
           "doc_en_01_p03_c01",
-          "doc_en_11_p03_c01",
-          "doc_ar_11_p03_c01"
+          "doc_ar_11_p03_c01",
+          "doc_en_11_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -981,8 +981,8 @@
           "doc_en_02_p03_c01",
           "doc_en_02_p01_c01",
           "doc_en_02_p02_c01",
-          "doc_en_12_p03_c01",
-          "doc_en_12_p01_c01"
+          "doc_en_01_p01_c01",
+          "doc_en_12_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1097,8 +1097,8 @@
           "doc_en_08_p02_c01",
           "doc_en_01_p03_c01",
           "doc_en_11_p02_c01",
-          "doc_en_08_p03_c01",
-          "doc_ar_04_p02_c01"
+          "doc_ar_04_p02_c01",
+          "doc_en_08_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1110,8 +1110,8 @@
         "language": "en",
         "question": "What is the mandatory timeframe for notifying a supervisory authority of a data breach under GDPR Article 33, and what are the maximum administrative fines under Article 83?",
         "gold_ids": [
-          "doc_en_09_p03_c01",
-          "doc_en_09_p02_c01"
+          "doc_en_09_p02_c01",
+          "doc_en_09_p03_c01"
         ],
         "retrieved_ids": [
           "doc_en_09_p02_c01",
@@ -1136,8 +1136,8 @@
           "doc_en_10_p01_c01",
           "doc_en_10_p02_c01",
           "doc_en_10_p03_c01",
-          "doc_en_03_p03_c01",
-          "doc_en_07_p02_c01"
+          "doc_en_07_p02_c01",
+          "doc_en_03_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1149,8 +1149,8 @@
         "language": "en",
         "question": "What are the five operational phases of the incident response lifecycle in the CISA playbook, and what hashing algorithm is required for forensic images?",
         "gold_ids": [
-          "doc_en_11_p02_c01",
-          "doc_en_11_p01_c01"
+          "doc_en_11_p01_c01",
+          "doc_en_11_p02_c01"
         ],
         "retrieved_ids": [
           "doc_en_11_p01_c01",
@@ -1234,7 +1234,7 @@
           "doc_en_05_p03_c01",
           "doc_en_05_p02_c01",
           "doc_en_04_p02_c01",
-          "doc_en_08_p01_c01"
+          "doc_ar_04_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1253,7 +1253,7 @@
           "doc_en_08_p02_c01",
           "doc_ar_06_p03_c01",
           "doc_ar_06_p02_c01",
-          "doc_en_08_p03_c01"
+          "doc_ar_12_p02_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,

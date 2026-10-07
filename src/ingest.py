@@ -26,6 +26,10 @@ def clean_extracted_text(text: str, language: str) -> str:
     
     # Remove null bytes or invisible control chars
     norm_text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]", "", norm_text)
+
+    # Ensure clean spacing between numerals and Arabic/Latin letters to prevent token concatenation
+    norm_text = re.sub(r"([\u0600-\u06FFa-zA-Z])(\d+)", r"\1 \2", norm_text)
+    norm_text = re.sub(r"(\d+)([\u0600-\u06FFa-zA-Z])", r"\1 \2", norm_text)
     
     # Clean leading dots or artifacts created by RTL text extraction
     lines = []
