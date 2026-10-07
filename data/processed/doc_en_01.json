@@ -1,0 +1,21 @@
+{
+  "document_id": "doc_en_01",
+  "title": "NIST SP 800-53 Rev 5: Security and Privacy Controls for Information Systems",
+  "language": "en",
+  "document_type": "policy",
+  "source_url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "text": "NIST SP 800-53 Rev 5: Security and Privacy Controls for Information Systems\nChapter 1: Scope, Applicability, and Control Framework Architecture\nNIST SP 800-53 provides a catalog of security and privacy controls for federal and institutional information systems.\nThe controls are organized into twenty families covering management, operational, technical, and privacy protection domains.\nSection AC-2: Account Management Requirements and Inactive Identity Handling\nOrganizations must systematically manage information system accounts including creation, modification, and disabling.\nThe organization requires automatically disabling inactive system accounts after a maximum inactivity period of 90 days.\nTemporary and guest accounts must be configured to expire automatically after a predefined period not exceeding 30 days."
+    },
+    {
+      "page": 2,
+      "text": "NIST SP 800-53 Rev 5: Security and Privacy Controls for Information Systems\nSection AU-6: Audit Review, Analysis, and Automated Reporting Procedures\nOrganizations must review and analyze information system audit records systematically for indications of unusual activity.\nThe organization must integrate automated mechanisms to alert security personnel of suspicious activities and threshold anoma\nAudit logs must be synchronized using Network Time Protocol (NTP) to a trusted external time source within 100 milliseconds.\nSection IA-5: Authenticator Management and Password Complexity Guidelines\nSystem authenticators must enforce minimum complexity requirements including at least 15 characters for privileged accounts.\nMulti-factor authentication (MFA) must be enforced for all local and network access to privileged administrative interfaces."
+    },
+    {
+      "page": 3,
+      "text": "NIST SP 800-53 Rev 5: Security and Privacy Controls for Information Systems\nSection SC-8: Transmission Confidentiality and Integrity Protection\nInformation systems must protect the confidentiality and integrity of transmitted data across external and internal networks.\nAll cryptographic modules used for data in transit and at rest must be validated under FIPS 140-2 or FIPS 140-3 standards.\nLegacy encryption algorithms such as DES, 3DES, and RC4 are explicitly prohibited across federal production systems.\nSection CP-9: System Backup Redundancy and Off-Site Storage\nSystem-level backups must be conducted daily for transactional data and weekly for complete system operating images.\nBackup media must be stored at a geographically distinct off-site location protected by equivalent physical security controls."
+    }
+  ]
+}

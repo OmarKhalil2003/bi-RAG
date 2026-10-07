@@ -1,0 +1,21 @@
+{
+  "document_id": "doc_en_11",
+  "title": "CISA Cybersecurity Incident and Vulnerability Response Playbook",
+  "language": "en",
+  "document_type": "manual",
+  "source_url": "https://www.cisa.gov/sites/default/files/publications/incident_response_playbook.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "text": "CISA Cybersecurity Incident and Vulnerability Response Playbook\nPhase 1 & 2: Preparation, Incident Detection, and Initial Analysis\nThe CISA playbook outlines standardized operational procedures for responding to cybersecurity threats across institutional net\nThe response lifecycle comprises five distinct phases: Preparation, Detection & Analysis, Containment, Eradication & Recovery\nUpon detecting anomalous activity, the incident response team must validate the threat and assign an initial severity rating withi\nHigh-severity incidents affecting critical operations or domain controllers must be escalated to executive leadership immediately"
+    },
+    {
+      "page": 2,
+      "text": "CISA Cybersecurity Incident and Vulnerability Response Playbook\nPhase 3: Containment Strategies and Forensic Evidence Preservation\nContainment isolates compromised systems to prevent lateral movement while preserving volatile memory and network connec\nInvestigators must use write-blocking hardware when acquiring physical hard drive bitstream images to prevent evidence alterat\nForensic images and memory dumps must be verified immediately using SHA-256 cryptographic hashing to maintain integrity.\nA formal Chain of Custody document must track every forensic artifact from point of acquisition through final regulatory reporting"
+    },
+    {
+      "page": 3,
+      "text": "CISA Cybersecurity Incident and Vulnerability Response Playbook\nPhase 4 & 5: Eradication, Recovery, and Post-Incident Lessons Learned\nEradication involves purging adversary footholds, resetting compromised enterprise credentials, and patching exploited vulnerab\nRestored systems must be connected to isolated monitoring segments for at least 72 hours of telemetry review before full produ\nThe incident response team must publish a final Root Cause Analysis (RCA) and Lessons Learned report within 14 days of clos\nRecommendations must update preventative defensive controls and firewall ingress rules to prevent recurrent exploitation."
+    }
+  ]
+}

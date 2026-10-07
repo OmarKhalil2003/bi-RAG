@@ -1,0 +1,25 @@
+document_id,title,language,source_url,local_path,document_type
+doc_ar_01,سياسة حوكمة البيانات الوطنية,ar,https://dga.gov.sa/sites/default/files/2021-09/National-Data-Governance-Policy-AR.pdf,data/raw/doc_ar_01.pdf,policy
+doc_ar_02,ضوابط الأمن السيبراني الأساسية (ECC-1:2018),ar,https://nca.gov.sa/sites/default/files/ECC-1-2018-AR.pdf,data/raw/doc_ar_02.pdf,policy
+doc_ar_03,الإطار الأخلاقي الوطني للذكاء الاصطناعي,ar,https://sdaia.gov.sa/sites/default/files/AI-Ethics-Principles-AR.pdf,data/raw/doc_ar_03.pdf,policy
+doc_ar_04,الدليل الإرشادي لتصنيف البيانات الوطنية وحمايتها,ar,https://ndmo.gov.sa/sites/default/files/Data-Classification-Manual-AR.pdf,data/raw/doc_ar_04.pdf,manual
+doc_ar_05,تقرير الاستدامة البيئية وجودة الهواء الحضري,ar,https://mewa.gov.sa/sites/default/files/Air-Quality-Report-AR.pdf,data/raw/doc_ar_05.pdf,report
+doc_ar_06,سياسة الحوسبة السحابية وأمن البيانات الحكومية,ar,https://cst.gov.sa/sites/default/files/Cloud-Computing-Policy-AR.pdf,data/raw/doc_ar_06.pdf,policy
+doc_ar_07,دليل السلامة والصحة المهنية في بيئات العمل الصناعية,ar,https://hrsd.gov.sa/sites/default/files/OSH-Manual-AR.pdf,data/raw/doc_ar_07.pdf,manual
+doc_ar_08,نظام حماية البيانات الشخصية ولائحته التنفيذية,ar,https://sdaia.gov.sa/sites/default/files/PDPL-Executive-Regulations-AR.pdf,data/raw/doc_ar_08.pdf,policy
+doc_ar_09,دليل حوكمة واستخدام أدوات الذكاء الاصطناعي التوليدي,ar,https://sdaia.gov.sa/sites/default/files/GenAI-Governance-Guide-AR.pdf,data/raw/doc_ar_09.pdf,manual
+doc_ar_10,التقرير الوطني لإدارة الموارد المائية وكفاءة الاستهلاك,ar,https://mewa.gov.sa/sites/default/files/Water-Resources-Report-AR.pdf,data/raw/doc_ar_10.pdf,report
+doc_ar_11,دليل إجراءات الاستجابة للحوادث والتهديدات السيبرانية,ar,https://nca.gov.sa/sites/default/files/Incident-Response-Playbook-AR.pdf,data/raw/doc_ar_11.pdf,manual
+doc_ar_12,تقرير التحول الرقمي الحكومي ومؤشرات النضج السنوي,ar,https://dga.gov.sa/sites/default/files/Digital-Maturity-Report-AR.pdf,data/raw/doc_ar_12.pdf,report
+doc_en_01,NIST SP 800-53 Rev 5: Security and Privacy Controls for Information Systems,en,https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf,data/raw/doc_en_01.pdf,policy
+doc_en_02,ISO/IEC 27001 Information Security Management Standard Requirements Overview,en,https://www.iso.org/files/live/sites/isoorg/files/standards/docs/en/iso_27001_overview.pdf,data/raw/doc_en_02.pdf,policy
+doc_en_03,WHO Global Air Quality Guidelines: Particulate Matter and Ozone Health Assessment,en,https://iris.who.int/bitstream/handle/10665/345329/WHO-AQG-Executive-Summary-eng.pdf,data/raw/doc_en_03.pdf,report
+doc_en_04,OECD Recommendation of the Council on Artificial Intelligence Policies,en,https://legalinstruments.oecd.org/public/doc/648/OECD-LEGAL-0449.pdf,data/raw/doc_en_04.pdf,policy
+doc_en_05,World Bank World Development Report: Data for Better Lives,en,https://openknowledge.worldbank.org/bitstream/handle/10986/35218/9781464816000.pdf,data/raw/doc_en_05.pdf,report
+doc_en_06,OSHA General Industry Safety and Health Regulations Manual (OSHA 2254),en,https://www.osha.gov/sites/default/files/publications/osha2254.pdf,data/raw/doc_en_06.pdf,manual
+doc_en_07,UNEP Global Environmental Outlook and Sustainability Assessment Framework,en,https://wedocs.unep.org/bitstream/handle/20.500.11822/GEO6-Summary-Policy-Makers.pdf,data/raw/doc_en_07.pdf,report
+doc_en_08,Cloud Security Alliance (CSA) Security Guidance for Critical Areas of Cloud Computing,en,https://cloudsecurityalliance.org/artifacts/security-guidance-v4.pdf,data/raw/doc_en_08.pdf,manual
+doc_en_09,European Union General Data Protection Regulation (GDPR) Compliance Guidelines,en,https://edpb.europa.eu/sites/default/files/files/file1/edpb_guidelines_202005_consent_en.pdf,data/raw/doc_en_09.pdf,policy
+doc_en_10,International Energy Agency (IEA) Global Energy Efficiency and Transition Report,en,https://iea.blob.core.windows.net/assets/energy-efficiency-2023.pdf,data/raw/doc_en_10.pdf,report
+doc_en_11,CISA Cybersecurity Incident and Vulnerability Response Playbook,en,https://www.cisa.gov/sites/default/files/publications/incident_response_playbook.pdf,data/raw/doc_en_11.pdf,manual
+doc_en_12,W3C Web Content Accessibility Guidelines (WCAG 2.1) Implementation Manual,en,https://www.w3.org/TR/WCAG21/wcag21-manual.pdf,data/raw/doc_en_12.pdf,manual

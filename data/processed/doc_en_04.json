@@ -1,0 +1,21 @@
+{
+  "document_id": "doc_en_04",
+  "title": "OECD Recommendation of the Council on Artificial Intelligence Policies",
+  "language": "en",
+  "document_type": "policy",
+  "source_url": "https://legalinstruments.oecd.org/public/doc/648/OECD-LEGAL-0449.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "text": "OECD Recommendation of the Council on Artificial Intelligence Policies\nSection 1: Values-Based Principles for Trustworthy AI Systems\nThe OECD AI Principles foster innovation while ensuring respect for human rights, democratic values, and rule of law.\nPrinciple 1.1 emphasizes inclusive growth, sustainable development, and global economic and environmental well-being.\nPrinciple 1.2 requires AI actors to respect human rights and diversity, embedding fairness and safeguarding against unfair bias.\nPrinciple 1.3 mandates transparency and responsible disclosure to foster general understanding and enable challenge of AI out"
+    },
+    {
+      "page": 2,
+      "text": "OECD Recommendation of the Council on Artificial Intelligence Policies\nSection 2: Robustness, Security, and Accountability Mandates\nPrinciple 1.4 requires AI systems to function in a robust, secure, and safe manner throughout their entire operational life cycles.\nAI systems must be designed to withstand adversarial inputs, data manipulation, and cybersecurity vulnerabilities continuously.\nPrinciple 1.5 dictates that AI actors must be held accountable for the proper functioning and ethical impact of AI systems.\nNational frameworks should encourage risk management approaches that assess social harms prior to public sector deploymen"
+    },
+    {
+      "page": 3,
+      "text": "OECD Recommendation of the Council on Artificial Intelligence Policies\nSection 3: National Policies and International Cooperation Priorities\nGovernments should facilitate long-term public investment in trustworthy AI research and development to address societal chall\nPolicy makers should foster accessible digital ecosystems and open public data repositories while preserving intellectual proper\nMember countries agree to support cross-border regulatory sandboxes to test innovative AI applications in safe environments.\nInternational cooperation is vital for developing interoperable technical standards and shared ethical evaluation benchmarks."
+    }
+  ]
+}

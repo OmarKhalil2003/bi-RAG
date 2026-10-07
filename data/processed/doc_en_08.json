@@ -1,0 +1,21 @@
+{
+  "document_id": "doc_en_08",
+  "title": "Cloud Security Alliance (CSA) Security Guidance for Critical Areas of Cloud Computing",
+  "language": "en",
+  "document_type": "manual",
+  "source_url": "https://cloudsecurityalliance.org/artifacts/security-guidance-v4.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "text": "Cloud Security Alliance (CSA) Security Guidance for Critical Areas of Cloud Computing\nDomain 1: Cloud Architecture, Service Models, and Shared Responsibility\nThe cloud reference model defines three service models: Infrastructure as a Service (IaaS), PaaS, and Software as a Service (S\nThe Shared Responsibility Model delineates security obligations between the cloud service provider and the tenant customer.\nIn IaaS, the customer retains responsibility for the guest OS, runtime, applications, identity configuration, and data protection.\nIn SaaS, the provider manages the entire technology stack, while the customer remains solely responsible for identity access an"
+    },
+    {
+      "page": 2,
+      "text": "Cloud Security Alliance (CSA) Security Guidance for Critical Areas of Cloud Computing\nDomain 11: Cryptography, Key Management, and Bring Your Own Key (BYOK)\nTenants processing regulated workloads must maintain control of cryptographic keys using Bring Your Own Key (BYOK) archite\nCryptographic keys must be generated and stored inside Dedicated Hardware Security Modules (HSM) certified to FIPS 140-2 L\nTenant encryption keys must never be exported in plaintext outside the boundary of the validated hardware security module.\nAutomated key rotation policies must cycle data encryption keys at least annually to limit cryptographic exposure windows."
+    },
+    {
+      "page": 3,
+      "text": "Cloud Security Alliance (CSA) Security Guidance for Critical Areas of Cloud Computing\nDomain 12: Identity, Access Management, and Zero Trust Architecture\nZero Trust Network Access (ZTNA) principles mandate that no entity or connection is inherently trusted based on network perim\nAll access requests must be explicitly authenticated, authorized, and cryptographically verified based on continuous context sign\nPrivileged cloud administrative access requires short-lived, just-in-time (JIT) credentials rather than static API keys.\nMicrosegmentation policies must enforce least-privilege network isolation between microservices and containerized application"
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+"""
+Gold Dataset Creation Script
+Bilingual Document Q&A (RAG) System
+
+Creates exactly 40 gold evaluation questions (16 AR answerable, 16 EN answerable,
+4 AR unanswerable, 4 EN unanswerable).
+Each answerable question references verified supporting chunk IDs.
+"""
+
+import os
+import json
+
+GOLD_QUESTIONS = [
+    # ==========================================
+    # ARABIC ANSWERABLE (16)
+    # ==========================================
+    {
+        "id": "q_ar_01",
+        "language": "ar",
+        "question": "ما هي الفترة الزمنية الإلزامية للاحتفاظ بسجلات التدقيق الأمني وسجلات الوصول للبيانات وفق سياسة حوكمة البيانات الوطنية؟",
+        "answerable": True,
+        "gold_answer": "تلتزم الجهة بالاحتفاظ بسجلات التدقيق الأمني وسجلات الوصول للبيانات لمدة لا تقل عن 5 سنوات تقويمية كاملة.",
+        "supporting_chunk_ids": ["doc_ar_01_p02_c01"]
+    },
+    {
+        "id": "q_ar_02",
+        "language": "ar",
+        "question": "ما هي شروط طول كلمة المرور واستخدام المصادقة متعددة العوامل في ضوابط الأمن السيبراني الأساسية (ECC-1:2018)؟",
+        "answerable": True,
+        "gold_answer": "يجب تطبيق المصادقة متعددة العوامل (MFA) لجميع عمليات الوصول عن بعد وحسابات المسؤولين المميزين، ويجب ألا يقل الحد الأدنى لطول كلمات المرور عن 12 خانة مع إلزامية تعقيد الرموز وتغييرها كل 90 يوماً.",
+        "supporting_chunk_ids": ["doc_ar_02_p01_c01"]
+    },
+    {
+        "id": "q_ar_03",
+        "language": "ar",
+        "question": "ما هي المبادئ الأخلاقية للذكاء الاصطناعي وما هو الإجراء المطلوب قبل الإطلاق التجاري للنماذج؟",
+        "answerable": True,
+        "gold_answer": "تشمل المبادئ العدالة والإنصاف ومنع التحيز الخوارزمي، والشفافية والقابلية للتفسير، والأمان والموثوقية، والخصوصية، والمساءلة والإشراف البشري. ويتعين إجراء اختبارات دورية للكشف عن التحيز الإحصائي في بيانات التدريب ومعالجتها قبل الإطلاق.",
+        "supporting_chunk_ids": ["doc_ar_03_p01_c01"]
+    },
+    {
+        "id": "q_ar_04",
+        "language": "ar",
+        "question": "ما هي مستويات تصنيف البيانات الأربعة في الدليل الإرشادي الوطني وما هي خوارزمية التشفير المعتمدة للبيانات السرية؟",
+        "answerable": True,
+        "gold_answer": "المستويات الأربعة هي: سري للغاية، سري، مقيد، وعام. وخوارزمية التشفير المعتمدة أثناء التخزين والنقل للبيانات المصنفة سري للغاية وسري هي خوارزمية AES-256.",
+        "supporting_chunk_ids": ["doc_ar_04_p01_c01", "doc_ar_04_p02_c01"]
+    },
+    {
+        "id": "q_ar_05",
+        "language": "ar",
+        "question": "ما هو الحد السنوي المستهدف لتركيز الجسيمات العالقة PM2.5 في تقرير جودة الهواء وما هي مستهدفات الحافلات الكهربائية بحلول 2030؟",
+        "answerable": True,
+        "gold_answer": "الحد المستهدف لتركيز PM2.5 هو خفضه إلى ما دون 15 ميكروغرام لكل متر مكعب بحلول عام 2030، ومستهدف قطاع النقل هو تحويل 30% من أسطول الحافلات وسيارات الأجرة للعمل بالطاقة الكهربائية بحلول 2030.",
+        "supporting_chunk_ids": ["doc_ar_05_p01_c01", "doc_ar_05_p02_c01"]
+    },
+    {
+        "id": "q_ar_06",
+        "language": "ar",
+        "question": "أين يجب استضافة البيانات الحكومية الحساسة وما هي نسبة التوفرية المطلوبة وفق سياسة الحوسبة السحابية؟",
+        "answerable": True,
+        "gold_answer": "يجب أن تكون مراكز البيانات التي تستضيف بيانات حكومية أو مقيدة ومفاتيح تشفيرها داخل حدود المملكة جغرافياً، وتشترط السياسة توفرية خدمة سحابية لا تقل عن 99.9% للأنظمة الحرجة وفق اتفاقيات مستوى الخدمة (SLA).",
+        "supporting_chunk_ids": ["doc_ar_06_p01_c01", "doc_ar_06_p02_c01"]
+    },
+    {
+        "id": "q_ar_07",
+        "language": "ar",
+        "question": "ما هو الحد الأقصى للتعرض للضوضاء في بيئة العمل وما هي المهلة المحددة للإبلاغ عن إصابات العمل الجسيمة والوفيات؟",
+        "answerable": True,
+        "gold_answer": "الحد الأقصى المسموح به للتعرض للضوضاء هو 85 ديسيبل (dBA) لوردية 8 ساعات، ويجب إبلاغ وزارة الموارد البشرية فوراً وخلال مدة أقصاها 24 ساعة عن أي حادث يسفر عن وفاة أو عجز جسيم.",
+        "supporting_chunk_ids": ["doc_ar_07_p01_c01", "doc_ar_07_p02_c01"]
+    },
+    {
+        "id": "q_ar_08",
+        "language": "ar",
+        "question": "خلال كم ساعة يجب إخطار الجهة المختصة بحدوث تسريب للبيانات الشخصية وفق نظام حماية البيانات الشخصية؟",
+        "answerable": True,
+        "gold_answer": "يجب على جهة التحكم إخطار الجهة المختصة فوراً وخلال مدة لا تتجاوز 72 ساعة من وقت علمها بحدوث تسريب أو اختراق أمني للبيانات.",
+        "supporting_chunk_ids": ["doc_ar_08_p02_c01"]
+    },
+    {
+        "id": "q_ar_09",
+        "language": "ar",
+        "question": "ما هي الضوابط المتعلقة بإدخال البيانات المصنفة في أدوات الذكاء الاصطناعي التوليدي العامة وما هي شروط الإفصاح عن المحتوى؟",
+        "answerable": True,
+        "gold_answer": "يحظر بشكل قاطع إدخال أو تحميل أي بيانات حكومية مصنفة (سري أو سري للغاية) أو بيانات شخصية في منصات الذكاء الاصطناعي العامة غير المعتمدة، ويجب تضمين أي محتوى مولد إفصاحاً صريحاً يوضح أنه مولد آلياً مع تطبيق علامة مائية رقمية.",
+        "supporting_chunk_ids": ["doc_ar_09_p01_c01", "doc_ar_09_p02_c01"]
+    },
+    {
+        "id": "q_ar_10",
+        "language": "ar",
+        "question": "كم تبلغ نسبة مساهمة محطات التحلية في الإمداد المائي البلدي وما هو مستهدف خفض استهلاك الفرد اليومي من المياه بحلول 2030؟",
+        "answerable": True,
+        "gold_answer": "تشكل محطات تحلية مياه البحر 60% من إجمالي الإمدادات المائية للقطاع البلدي، وتهدف الاستراتيجية إلى خفض معدل الاستهلاك اليومي للفرد من 265 لتراً إلى 150 لتراً بحلول 2030.",
+        "supporting_chunk_ids": ["doc_ar_10_p01_c01", "doc_ar_10_p02_c01"]
+    },
+    {
+        "id": "q_ar_11",
+        "language": "ar",
+        "question": "ما هو الحد الأقصى لزمن احتواء الحوادث السيبرانية من المستوى الحرج P1 وما هي الخوارزمية المستخدمة للتحقق من سلامة الأدلة الجنائية؟",
+        "answerable": True,
+        "gold_answer": "يجب بدء إجراءات العزل المنطقي واحتواء حوادث P1 خلال مدة أقصاها ساعة واحدة من تأكيد الحادث، وتستخدم خوارزمية التجزئة التشفيرية SHA-256 للتحقق من سلامة كافة الصور الجنائية الرقمية.",
+        "supporting_chunk_ids": ["doc_ar_11_p01_c01", "doc_ar_11_p02_c01"]
+    },
+    {
+        "id": "q_ar_12",
+        "language": "ar",
+        "question": "كم بلغت نسبة النضج الرقمي الحكومي العام ونسبة الخدمات الحكومية المرقمنة وفق تقرير التحول الرقمي؟",
+        "answerable": True,
+        "gold_answer": "سجل المؤشر العام للنضج الرقمي للجهات الحكومية معدلاً بلغ 86.4%، وبلغت نسبة رقمنة الخدمات الحكومية الأساسية 92% من إجمالي الخدمات.",
+        "supporting_chunk_ids": ["doc_ar_12_p01_c01"]
+    },
+    {
+        "id": "q_ar_13",
+        "language": "ar",
+        "question": "كم مرة يجب إجراء تجارب الإخلاء الوهمي لحالات الطوارئ في بيئات العمل الصناعية وفق الدليل الإرشادي؟",
+        "answerable": True,
+        "gold_answer": "يتعين إجراء تجارب إخلاء وهمي شاملة مرتين على الأقل سنوياً لتدريب فرق الطوارئ والعاملين على سرعة الاستجابة.",
+        "supporting_chunk_ids": ["doc_ar_07_p03_c01"]
+    },
+    {
+        "id": "q_ar_14",
+        "language": "ar",
+        "question": "ما هي العقوبات المالية القصوى المقررة لمخالفة نظام حماية البيانات الشخصية؟",
+        "answerable": True,
+        "gold_answer": "يعاقب كل من خالف أحكام النظام بغرامات مالية قد تصل إلى خمسة ملايين ريال مع جواز مضاعفة الغرامة في حال تكرار المخالفة.",
+        "supporting_chunk_ids": ["doc_ar_08_p03_c01"]
+    },
+    {
+        "id": "q_ar_15",
+        "language": "ar",
+        "question": "كم تبلغ سعة الخزن الاستراتيجي للمياه في الخزانات التشغيلية الكبرى وكم يوماً تغطي في حالات الطوارئ؟",
+        "answerable": True,
+        "gold_answer": "ارتفعت سعة الخزن الاستراتيجي للمياه إلى 120 مليون متر مكعب، وتضمن استمرارية الإمداد المائي الحضري لمدة 14 يوماً متواصلة في الحالات الطارئة.",
+        "supporting_chunk_ids": ["doc_ar_10_p03_c01"]
+    },
+    {
+        "id": "q_ar_16",
+        "language": "ar",
+        "question": "وفقاً لضوابط NIST الأمريكية لإدارة الحسابات (AC-2)، بعد كم يوماً من عدم النشاط يجب تعطيل الحسابات الخاملة آلياً؟",
+        "answerable": True,
+        "gold_answer": "وفقاً للمعيار NIST AC-2، يلزم تعطيل الحسابات الخاملة آلياً بعد فترة عدم نشاط لا تتجاوز 90 يوماً (90 days).",
+        "supporting_chunk_ids": ["doc_en_01_p01_c01"]
+    },
+
+    # ==========================================
+    # ARABIC UNANSWERABLE (4)
+    # ==========================================
+    {
+        "id": "q_ar_un_01",
+        "language": "ar",
+        "question": "ما هي الرسوم الحكومية المحددة لتجديد رخصة القيادة للمركبات الثقيلة وشروط الفحص الطبي في اللائحة المرورية؟",
+        "answerable": False,
+        "gold_answer": None,
+        "supporting_chunk_ids": []
+    },
+    {
+        "id": "q_ar_un_02",
+        "language": "ar",
+        "question": "كم يبلغ عدد سكان قارة أستراليا ومعدل النمو السكاني السنوي لعام 2024 وفقاً للمستندات؟",
+        "answerable": False,
+        "gold_answer": None,
+        "supporting_chunk_ids": []
+    },
+    {
+        "id": "q_ar_un_03",
+        "language": "ar",
+        "question": "ما هي المعايير المتبعة لتحديد أسعار تذاكر الرحلات الفضائية المأهولة إلى كوكب المريخ؟",
+        "answerable": False,
+        "gold_answer": None,
+        "supporting_chunk_ids": []
+    },
+    {
+        "id": "q_ar_un_04",
+        "language": "ar",
+        "question": "ما هي القيمة الضريبية المفروضة على مبيعات الأسهم في بورصة طوكيو للأوراق المالية وفق التقارير؟",
+        "answerable": False,
+        "gold_answer": None,
+        "supporting_chunk_ids": []
+    },
+
+    # ==========================================
+    # ENGLISH ANSWERABLE (16)
+    # ==========================================
+    {
+        "id": "q_en_01",
+        "language": "en",
+        "question": "Under NIST SP 800-53 Section AC-2, after how many days of inactivity must system accounts be automatically disabled?",
+        "answerable": True,
+        "gold_answer": "Under NIST SP 800-53 Section AC-2, organizations require automatically disabling inactive system accounts after a maximum inactivity period of 90 days.",
+        "supporting_chunk_ids": ["doc_en_01_p01_c01"]
+    },
+    {
+        "id": "q_en_02",
+        "language": "en",
+        "question": "What are the four control themes of ISO/IEC 27001 Annex A and how many total controls are there?",
+        "answerable": True,
+        "gold_answer": "Annex A organizes 93 controls into four themes: Organizational (37 controls), People (8 controls), Physical (14 controls), and Technological (34 controls).",
+        "supporting_chunk_ids": ["doc_en_02_p03_c01"]
+    },
+    {
+        "id": "q_en_03",
+        "language": "en",
+        "question": "What is the WHO recommended annual mean guideline concentration limit for PM2.5 and nitrogen dioxide (NO2)?",
+        "answerable": True,
+        "gold_answer": "The recommended annual mean guideline level for PM2.5 is 5 µg/m³, and for nitrogen dioxide (NO2) the annual mean limit is 10 µg/m³.",
+        "supporting_chunk_ids": ["doc_en_03_p02_c01"]
+    },
+    {
+        "id": "q_en_04",
+        "language": "en",
+        "question": "What are the core values-based principles for trustworthy AI outlined in the OECD AI Recommendation?",
+        "answerable": True,
+        "gold_answer": "The principles include: inclusive growth and sustainable development (1.1), human-centered values and fairness (1.2), transparency and explainability (1.3), robustness, security and safety (1.4), and accountability (1.5).",
+        "supporting_chunk_ids": ["doc_en_04_p01_c01", "doc_en_04_p02_c01"]
+    },
+    {
+        "id": "q_en_05",
+        "language": "en",
+        "question": "According to the World Bank Data for Better Lives report, what share of economic value from domestic data do lower-middle-income countries capture?",
+        "answerable": True,
+        "gold_answer": "Lower-middle-income countries currently capture less than 15% of the total economic value derived from their domestic data flows.",
+        "supporting_chunk_ids": ["doc_en_05_p02_c01"]
+    },
+    {
+        "id": "q_en_06",
+        "language": "en",
+        "question": "At what elevation are guardrails required for walking-working surfaces under OSHA regulations, and how many sections must a Safety Data Sheet (SDS) contain?",
+        "answerable": True,
+        "gold_answer": "Guardrail systems are mandatory for any platform elevated 4 feet (1.2 meters) or more above ground, and Safety Data Sheets (SDS) must follow a strictly mandated 16-section format.",
+        "supporting_chunk_ids": ["doc_en_06_p01_c01", "doc_en_06_p03_c01"]
+    },
+    {
+        "id": "q_en_07",
+        "language": "en",
+        "question": "According to UNEP Global Environmental Outlook, what share of global electricity generation comes from renewables, and what is the global circularity metric?",
+        "answerable": True,
+        "gold_answer": "Renewable energy reached 28% of total global electricity generation, while global circularity stands at only 8.6%.",
+        "supporting_chunk_ids": ["doc_en_07_p02_c01"]
+    },
+    {
+        "id": "q_en_08",
+        "language": "en",
+        "question": "What cryptographic validation standard is required for Hardware Security Modules (HSM) under Cloud Security Alliance guidance for BYOK?",
+        "answerable": True,
+        "gold_answer": "Cryptographic keys must be generated and stored inside Dedicated Hardware Security Modules (HSM) certified to FIPS 140-2 Level 3.",
+        "supporting_chunk_ids": ["doc_en_08_p02_c01"]
+    },
+    {
+        "id": "q_en_09",
+        "language": "en",
+        "question": "What is the mandatory timeframe for notifying a supervisory authority of a data breach under GDPR Article 33, and what are the maximum administrative fines under Article 83?",
+        "answerable": True,
+        "gold_answer": "Controllers must notify the supervisory authority without undue delay and within 72 hours of awareness. Maximum administrative fines can reach up to 20 million EUR or 4% of total worldwide annual turnover.",
+        "supporting_chunk_ids": ["doc_en_09_p02_c01", "doc_en_09_p03_c01"]
+    },
+    {
+        "id": "q_en_10",
+        "language": "en",
+        "question": "What annual improvement rate in primary energy intensity is required to achieve Net Zero by 2050 according to the IEA report?",
+        "answerable": True,
+        "gold_answer": "Annual energy intensity improvement must accelerate to 4% per year to remain on track for Net Zero Emissions by 2050.",
+        "supporting_chunk_ids": ["doc_en_10_p01_c01"]
+    },
+    {
+        "id": "q_en_11",
+        "language": "en",
+        "question": "What are the five operational phases of the incident response lifecycle in the CISA playbook, and what hashing algorithm is required for forensic images?",
+        "answerable": True,
+        "gold_answer": "The five phases are: Preparation, Detection & Analysis, Containment, Eradication & Recovery, and Post-Incident. Forensic images must be verified immediately using SHA-256 cryptographic hashing.",
+        "supporting_chunk_ids": ["doc_en_11_p01_c01", "doc_en_11_p02_c01"]
+    },
+    {
+        "id": "q_en_12",
+        "language": "en",
+        "question": "What are the four POUR principles of WCAG 2.1 and what is the minimum required visual contrast ratio for standard text under Criterion 1.4.3?",
+        "answerable": True,
+        "gold_answer": "The four principles are Perceivable, Operable, Understandable, and Robust. Success Criterion 1.4.3 requires a visual contrast ratio of at least 4.5:1 for standard text (and 3:1 for large text).",
+        "supporting_chunk_ids": ["doc_en_12_p01_c01", "doc_en_12_p02_c01"]
+    },
+    {
+        "id": "q_en_13",
+        "language": "en",
+        "question": "What is the peak season 8-hour daily maximum ozone (O3) guideline level established by the WHO?",
+        "answerable": True,
+        "gold_answer": "The peak season 8-hour daily maximum ozone concentration guideline is set at 60 µg/m³.",
+        "supporting_chunk_ids": ["doc_en_03_p03_c01"]
+    },
+    {
+        "id": "q_en_14",
+        "language": "en",
+        "question": "Under the CISA playbook, how long must restored systems be observed in an isolated monitoring segment before returning to production?",
+        "answerable": True,
+        "gold_answer": "Restored systems must be connected to isolated monitoring segments for at least 72 hours of telemetry review before full production return.",
+        "supporting_chunk_ids": ["doc_en_11_p03_c01"]
+    },
+    {
+        "id": "q_en_15",
+        "language": "en",
+        "question": "What are the three core pillars of the social contract for data according to the World Bank Development Report?",
+        "answerable": True,
+        "gold_answer": "The social contract for data is founded on three fundamental pillars: Value, Trust, and Equity.",
+        "supporting_chunk_ids": ["doc_en_05_p01_c01"]
+    },
+    {
+        "id": "q_en_16",
+        "language": "en",
+        "question": "According to the Saudi Cloud Computing Regulatory Policy, where must sovereign and restricted government data and their encryption keys be hosted?",
+        "answerable": True,
+        "gold_answer": "Data centers that host sovereign or restricted government data and their encryption keys must be located geographically within the borders of the Kingdom of Saudi Arabia.",
+        "supporting_chunk_ids": ["doc_ar_06_p01_c01"]
+    },
+
+    # ==========================================
+    # ENGLISH UNANSWERABLE (4)
+    # ==========================================
+    {
+        "id": "q_en_un_01",
+        "language": "en",
+        "question": "What is the official currency and statutory foreign exchange reserve limit of New Zealand according to the reports?",
+        "answerable": False,
+        "gold_answer": None,
+        "supporting_chunk_ids": []
+    },
+    {
+        "id": "q_en_un_02",
+        "language": "en",
+        "question": "What are the mandatory caloric and nutritional dietary specifications for astronauts on the International Space Station?",
+        "answerable": False,
+        "gold_answer": None,
+        "supporting_chunk_ids": []
+    },
+    {
+        "id": "q_en_un_03",
+        "language": "en",
+        "question": "How many commercial airline flights were cleared through Heathrow Airport during the summer holiday peak according to the documents?",
+        "answerable": False,
+        "gold_answer": None,
+        "supporting_chunk_ids": []
+    },
+    {
+        "id": "q_en_un_04",
+        "language": "en",
+        "question": "What is the statutory penalty for maritime cargo salvage violations in international waters under Admiralty law?",
+        "answerable": False,
+        "gold_answer": None,
+        "supporting_chunk_ids": []
+    }
+]
+
+def main():
+    os.makedirs("evaluation", exist_ok=True)
+    gold_path = os.path.join("evaluation", "gold.jsonl")
+    
+    with open(gold_path, "w", encoding="utf-8") as f:
+        for q in GOLD_QUESTIONS:
+            f.write(json.dumps(q, ensure_ascii=False) + "\n")
+            
+    ar_q = [q for q in GOLD_QUESTIONS if q["language"] == "ar"]
+    en_q = [q for q in GOLD_QUESTIONS if q["language"] == "en"]
+    un_q = [q for q in GOLD_QUESTIONS if not q["answerable"]]
+    ans_q = [q for q in GOLD_QUESTIONS if q["answerable"]]
+    
+    print(f"Created {gold_path} with {len(GOLD_QUESTIONS)} total questions:")
+    print(f"  - Arabic questions: {len(ar_q)} (Answerable: {len([q for q in ar_q if q['answerable']])}, Unanswerable: {len([q for q in ar_q if not q['answerable']])})")
+    print(f"  - English questions: {len(en_q)} (Answerable: {len([q for q in en_q if q['answerable']])}, Unanswerable: {len([q for q in en_q if not q['answerable']])})")
+    print(f"  - Total unanswerable questions: {len(un_q)}")
+    print(f"  - Total answerable questions: {len(ans_q)}")
+
+if __name__ == "__main__":
+    main()

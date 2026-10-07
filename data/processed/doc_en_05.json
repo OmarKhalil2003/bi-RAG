@@ -1,0 +1,21 @@
+{
+  "document_id": "doc_en_05",
+  "title": "World Bank World Development Report: Data for Better Lives",
+  "language": "en",
+  "document_type": "report",
+  "source_url": "https://openknowledge.worldbank.org/bitstream/handle/10986/35218/9781464816000.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "text": "World Bank World Development Report: Data for Better Lives\nChapter 1: The New Social Contract for Data in Developing Economies\nData has emerged as an unprecedented economic asset capable of improving public service delivery and economic productivity\nThe report proposes an integrated social contract for data founded on three fundamental pillars: Value, Trust, and Equity.\nTrust requires establishing robust data protection laws, cybersecurity safeguards, and independent regulatory oversight authorit\nWithout trust, citizens and businesses resist data sharing, reducing the economic value generated from collective data assets."
+    },
+    {
+      "page": 2,
+      "text": "World Bank World Development Report: Data for Better Lives\nChapter 2: Value Capture Disparities between Global North and South\nLower-middle-income countries currently capture less than 15% of the total economic value derived from their domestic data flo\nGlobal platform monopolies based in high-income economies capture dominant shares of digital advertising and cloud service re\nDeveloping countries face severe infrastructure deficits, with average broadband penetration remaining under 35% across rural\nNational statistical offices require modernization and sustainable financing to produce high-frequency socioeconomic metrics."
+    },
+    {
+      "page": 3,
+      "text": "World Bank World Development Report: Data for Better Lives\nChapter 3: Enablers of Open Data and Cross-Border Governance\nGovernments should establish open data policies that make non-sensitive public data freely accessible in machine-readable for\nCross-border data flow governance requires interoperable legal frameworks that protect privacy while preventing digital protectio\nInvestment in national data centers and Internet Exchange Points (IXPs) reduces international transit costs by up to 40%.\nAntitrust and competition policies must be updated to address anti-competitive network effects in concentrated digital markets."
+    }
+  ]
+}

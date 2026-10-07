@@ -1,0 +1,1265 @@
+{
+  "timestamp": "2026-10-07T10:10:38Z",
+  "dataset": "evaluation/gold.jsonl",
+  "total_answerable_evaluated": 32,
+  "baseline": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "hit@5": 1.0,
+    "mrr": 1.0,
+    "ar_mrr": 1.0,
+    "en_mrr": 1.0,
+    "per_query": [
+      {
+        "id": "q_ar_01",
+        "language": "ar",
+        "question": "ما هي الفترة الزمنية الإلزامية للاحتفاظ بسجلات التدقيق الأمني وسجلات الوصول للبيانات وفق سياسة حوكمة البيانات الوطنية؟",
+        "gold_ids": [
+          "doc_ar_01_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_01_p02_c01",
+          "doc_ar_01_p03_c01",
+          "doc_ar_01_p01_c01",
+          "doc_ar_02_p01_c01",
+          "doc_en_01_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_02",
+        "language": "ar",
+        "question": "ما هي شروط طول كلمة المرور واستخدام المصادقة متعددة العوامل في ضوابط الأمن السيبراني الأساسية (ECC-1:2018)؟",
+        "gold_ids": [
+          "doc_ar_02_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_02_p01_c01",
+          "doc_ar_02_p02_c01",
+          "doc_en_01_p02_c01",
+          "doc_ar_11_p01_c01",
+          "doc_ar_02_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_03",
+        "language": "ar",
+        "question": "ما هي المبادئ الأخلاقية للذكاء الاصطناعي وما هو الإجراء المطلوب قبل الإطلاق التجاري للنماذج؟",
+        "gold_ids": [
+          "doc_ar_03_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_03_p01_c01",
+          "doc_ar_03_p02_c01",
+          "doc_ar_03_p03_c01",
+          "doc_en_04_p01_c01",
+          "doc_ar_09_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_04",
+        "language": "ar",
+        "question": "ما هي مستويات تصنيف البيانات الأربعة في الدليل الإرشادي الوطني وما هي خوارزمية التشفير المعتمدة للبيانات السرية؟",
+        "gold_ids": [
+          "doc_ar_04_p02_c01",
+          "doc_ar_04_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_04_p01_c01",
+          "doc_ar_04_p02_c01",
+          "doc_ar_01_p02_c01",
+          "doc_ar_04_p03_c01",
+          "doc_ar_06_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_05",
+        "language": "ar",
+        "question": "ما هو الحد السنوي المستهدف لتركيز الجسيمات العالقة PM2.5 في تقرير جودة الهواء وما هي مستهدفات الحافلات الكهربائية بحلول 2030؟",
+        "gold_ids": [
+          "doc_ar_05_p01_c01",
+          "doc_ar_05_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_05_p01_c01",
+          "doc_ar_05_p02_c01",
+          "doc_en_03_p02_c01",
+          "doc_en_03_p03_c01",
+          "doc_en_10_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_06",
+        "language": "ar",
+        "question": "أين يجب استضافة البيانات الحكومية الحساسة وما هي نسبة التوفرية المطلوبة وفق سياسة الحوسبة السحابية؟",
+        "gold_ids": [
+          "doc_ar_06_p01_c01",
+          "doc_ar_06_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_06_p01_c01",
+          "doc_ar_06_p02_c01",
+          "doc_ar_06_p03_c01",
+          "doc_ar_12_p02_c01",
+          "doc_ar_01_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_07",
+        "language": "ar",
+        "question": "ما هو الحد الأقصى للتعرض للضوضاء في بيئة العمل وما هي المهلة المحددة للإبلاغ عن إصابات العمل الجسيمة والوفيات؟",
+        "gold_ids": [
+          "doc_ar_07_p02_c01",
+          "doc_ar_07_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_07_p01_c01",
+          "doc_ar_07_p02_c01",
+          "doc_en_03_p03_c01",
+          "doc_en_03_p01_c01",
+          "doc_en_03_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_08",
+        "language": "ar",
+        "question": "خلال كم ساعة يجب إخطار الجهة المختصة بحدوث تسريب للبيانات الشخصية وفق نظام حماية البيانات الشخصية؟",
+        "gold_ids": [
+          "doc_ar_08_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_08_p02_c01",
+          "doc_en_09_p02_c01",
+          "doc_en_01_p01_c01",
+          "doc_ar_08_p03_c01",
+          "doc_en_11_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_09",
+        "language": "ar",
+        "question": "ما هي الضوابط المتعلقة بإدخال البيانات المصنفة في أدوات الذكاء الاصطناعي التوليدي العامة وما هي شروط الإفصاح عن المحتوى؟",
+        "gold_ids": [
+          "doc_ar_09_p02_c01",
+          "doc_ar_09_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_09_p01_c01",
+          "doc_ar_09_p02_c01",
+          "doc_ar_03_p02_c01",
+          "doc_ar_03_p01_c01",
+          "doc_ar_09_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_10",
+        "language": "ar",
+        "question": "كم تبلغ نسبة مساهمة محطات التحلية في الإمداد المائي البلدي وما هو مستهدف خفض استهلاك الفرد اليومي من المياه بحلول 2030؟",
+        "gold_ids": [
+          "doc_ar_10_p02_c01",
+          "doc_ar_10_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_10_p01_c01",
+          "doc_ar_10_p02_c01",
+          "doc_ar_05_p02_c01",
+          "doc_ar_05_p01_c01",
+          "doc_ar_05_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_11",
+        "language": "ar",
+        "question": "ما هو الحد الأقصى لزمن احتواء الحوادث السيبرانية من المستوى الحرج P1 وما هي الخوارزمية المستخدمة للتحقق من سلامة الأدلة الجنائية؟",
+        "gold_ids": [
+          "doc_ar_11_p01_c01",
+          "doc_ar_11_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_11_p01_c01",
+          "doc_ar_11_p02_c01",
+          "doc_ar_11_p03_c01",
+          "doc_ar_06_p02_c01",
+          "doc_en_11_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_12",
+        "language": "ar",
+        "question": "كم بلغت نسبة النضج الرقمي الحكومي العام ونسبة الخدمات الحكومية المرقمنة وفق تقرير التحول الرقمي؟",
+        "gold_ids": [
+          "doc_ar_12_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_12_p01_c01",
+          "doc_ar_12_p03_c01",
+          "doc_ar_12_p02_c01",
+          "doc_ar_01_p03_c01",
+          "doc_ar_04_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_13",
+        "language": "ar",
+        "question": "كم مرة يجب إجراء تجارب الإخلاء الوهمي لحالات الطوارئ في بيئات العمل الصناعية وفق الدليل الإرشادي؟",
+        "gold_ids": [
+          "doc_ar_07_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_07_p03_c01",
+          "doc_ar_07_p01_c01",
+          "doc_ar_07_p02_c01",
+          "doc_ar_02_p03_c01",
+          "doc_en_06_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_14",
+        "language": "ar",
+        "question": "ما هي العقوبات المالية القصوى المقررة لمخالفة نظام حماية البيانات الشخصية؟",
+        "gold_ids": [
+          "doc_ar_08_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_08_p03_c01",
+          "doc_en_09_p03_c01",
+          "doc_ar_08_p02_c01",
+          "doc_ar_08_p01_c01",
+          "doc_en_01_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_15",
+        "language": "ar",
+        "question": "كم تبلغ سعة الخزن الاستراتيجي للمياه في الخزانات التشغيلية الكبرى وكم يوماً تغطي في حالات الطوارئ؟",
+        "gold_ids": [
+          "doc_ar_10_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_10_p03_c01",
+          "doc_ar_10_p02_c01",
+          "doc_ar_10_p01_c01",
+          "doc_ar_06_p02_c01",
+          "doc_en_10_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_16",
+        "language": "ar",
+        "question": "وفقاً لضوابط NIST الأمريكية لإدارة الحسابات (AC-2)، بعد كم يوماً من عدم النشاط يجب تعطيل الحسابات الخاملة آلياً؟",
+        "gold_ids": [
+          "doc_en_01_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_01_p01_c01",
+          "doc_en_01_p02_c01",
+          "doc_ar_06_p02_c01",
+          "doc_ar_11_p03_c01",
+          "doc_ar_01_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_01",
+        "language": "en",
+        "question": "Under NIST SP 800-53 Section AC-2, after how many days of inactivity must system accounts be automatically disabled?",
+        "gold_ids": [
+          "doc_en_01_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_01_p01_c01",
+          "doc_en_01_p02_c01",
+          "doc_en_11_p03_c01",
+          "doc_ar_06_p02_c01",
+          "doc_ar_11_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_02",
+        "language": "en",
+        "question": "What are the four control themes of ISO/IEC 27001 Annex A and how many total controls are there?",
+        "gold_ids": [
+          "doc_en_02_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_02_p03_c01",
+          "doc_en_02_p01_c01",
+          "doc_en_02_p02_c01",
+          "doc_en_01_p01_c01",
+          "doc_en_12_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_03",
+        "language": "en",
+        "question": "What is the WHO recommended annual mean guideline concentration limit for PM2.5 and nitrogen dioxide (NO2)?",
+        "gold_ids": [
+          "doc_en_03_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_03_p02_c01",
+          "doc_en_03_p03_c01",
+          "doc_en_03_p01_c01",
+          "doc_ar_05_p01_c01",
+          "doc_en_07_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_04",
+        "language": "en",
+        "question": "What are the core values-based principles for trustworthy AI outlined in the OECD AI Recommendation?",
+        "gold_ids": [
+          "doc_en_04_p01_c01",
+          "doc_en_04_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_04_p01_c01",
+          "doc_en_04_p02_c01",
+          "doc_en_04_p03_c01",
+          "doc_ar_03_p01_c01",
+          "doc_ar_03_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_05",
+        "language": "en",
+        "question": "According to the World Bank Data for Better Lives report, what share of economic value from domestic data do lower-middle-income countries capture?",
+        "gold_ids": [
+          "doc_en_05_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_05_p02_c01",
+          "doc_en_05_p01_c01",
+          "doc_en_05_p03_c01",
+          "doc_en_10_p02_c01",
+          "doc_en_03_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_06",
+        "language": "en",
+        "question": "At what elevation are guardrails required for walking-working surfaces under OSHA regulations, and how many sections must a Safety Data Sheet (SDS) contain?",
+        "gold_ids": [
+          "doc_en_06_p01_c01",
+          "doc_en_06_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_06_p01_c01",
+          "doc_en_06_p03_c01",
+          "doc_ar_07_p02_c01",
+          "doc_ar_07_p01_c01",
+          "doc_en_06_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_07",
+        "language": "en",
+        "question": "According to UNEP Global Environmental Outlook, what share of global electricity generation comes from renewables, and what is the global circularity metric?",
+        "gold_ids": [
+          "doc_en_07_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_07_p02_c01",
+          "doc_en_07_p01_c01",
+          "doc_en_10_p01_c01",
+          "doc_en_07_p03_c01",
+          "doc_en_10_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_08",
+        "language": "en",
+        "question": "What cryptographic validation standard is required for Hardware Security Modules (HSM) under Cloud Security Alliance guidance for BYOK?",
+        "gold_ids": [
+          "doc_en_08_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_08_p02_c01",
+          "doc_en_01_p03_c01",
+          "doc_en_08_p03_c01",
+          "doc_en_11_p02_c01",
+          "doc_ar_04_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_09",
+        "language": "en",
+        "question": "What is the mandatory timeframe for notifying a supervisory authority of a data breach under GDPR Article 33, and what are the maximum administrative fines under Article 83?",
+        "gold_ids": [
+          "doc_en_09_p03_c01",
+          "doc_en_09_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_09_p02_c01",
+          "doc_en_09_p03_c01",
+          "doc_ar_08_p02_c01",
+          "doc_en_01_p01_c01",
+          "doc_ar_01_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_10",
+        "language": "en",
+        "question": "What annual improvement rate in primary energy intensity is required to achieve Net Zero by 2050 according to the IEA report?",
+        "gold_ids": [
+          "doc_en_10_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_10_p01_c01",
+          "doc_en_10_p03_c01",
+          "doc_en_07_p02_c01",
+          "doc_en_10_p02_c01",
+          "doc_en_07_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_11",
+        "language": "en",
+        "question": "What are the five operational phases of the incident response lifecycle in the CISA playbook, and what hashing algorithm is required for forensic images?",
+        "gold_ids": [
+          "doc_en_11_p02_c01",
+          "doc_en_11_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_11_p01_c01",
+          "doc_en_11_p02_c01",
+          "doc_en_11_p03_c01",
+          "doc_ar_11_p03_c01",
+          "doc_ar_11_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_12",
+        "language": "en",
+        "question": "What are the four POUR principles of WCAG 2.1 and what is the minimum required visual contrast ratio for standard text under Criterion 1.4.3?",
+        "gold_ids": [
+          "doc_en_12_p02_c01",
+          "doc_en_12_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_12_p02_c01",
+          "doc_en_12_p01_c01",
+          "doc_en_12_p03_c01",
+          "doc_en_04_p01_c01",
+          "doc_ar_03_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_13",
+        "language": "en",
+        "question": "What is the peak season 8-hour daily maximum ozone (O3) guideline level established by the WHO?",
+        "gold_ids": [
+          "doc_en_03_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_03_p03_c01",
+          "doc_en_03_p01_c01",
+          "doc_en_03_p02_c01",
+          "doc_ar_07_p01_c01",
+          "doc_en_06_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_14",
+        "language": "en",
+        "question": "Under the CISA playbook, how long must restored systems be observed in an isolated monitoring segment before returning to production?",
+        "gold_ids": [
+          "doc_en_11_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_11_p03_c01",
+          "doc_en_11_p01_c01",
+          "doc_ar_02_p03_c01",
+          "doc_en_01_p01_c01",
+          "doc_en_11_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_15",
+        "language": "en",
+        "question": "What are the three core pillars of the social contract for data according to the World Bank Development Report?",
+        "gold_ids": [
+          "doc_en_05_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_05_p01_c01",
+          "doc_en_05_p03_c01",
+          "doc_en_05_p02_c01",
+          "doc_ar_06_p03_c01",
+          "doc_en_08_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_16",
+        "language": "en",
+        "question": "According to the Saudi Cloud Computing Regulatory Policy, where must sovereign and restricted government data and their encryption keys be hosted?",
+        "gold_ids": [
+          "doc_ar_06_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_06_p01_c01",
+          "doc_en_08_p02_c01",
+          "doc_ar_06_p03_c01",
+          "doc_en_08_p03_c01",
+          "doc_en_01_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      }
+    ]
+  },
+  "improved": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "hit@5": 1.0,
+    "mrr": 1.0,
+    "ar_mrr": 1.0,
+    "en_mrr": 1.0,
+    "per_query": [
+      {
+        "id": "q_ar_01",
+        "language": "ar",
+        "question": "ما هي الفترة الزمنية الإلزامية للاحتفاظ بسجلات التدقيق الأمني وسجلات الوصول للبيانات وفق سياسة حوكمة البيانات الوطنية؟",
+        "gold_ids": [
+          "doc_ar_01_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_01_p02_c01",
+          "doc_ar_01_p03_c01",
+          "doc_ar_01_p01_c01",
+          "doc_ar_04_p03_c01",
+          "doc_ar_06_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_02",
+        "language": "ar",
+        "question": "ما هي شروط طول كلمة المرور واستخدام المصادقة متعددة العوامل في ضوابط الأمن السيبراني الأساسية (ECC-1:2018)؟",
+        "gold_ids": [
+          "doc_ar_02_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_02_p01_c01",
+          "doc_ar_02_p02_c01",
+          "doc_ar_02_p03_c01",
+          "doc_en_01_p02_c01",
+          "doc_ar_11_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_03",
+        "language": "ar",
+        "question": "ما هي المبادئ الأخلاقية للذكاء الاصطناعي وما هو الإجراء المطلوب قبل الإطلاق التجاري للنماذج؟",
+        "gold_ids": [
+          "doc_ar_03_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_03_p01_c01",
+          "doc_ar_03_p02_c01",
+          "doc_ar_03_p03_c01",
+          "doc_en_04_p02_c01",
+          "doc_ar_09_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_04",
+        "language": "ar",
+        "question": "ما هي مستويات تصنيف البيانات الأربعة في الدليل الإرشادي الوطني وما هي خوارزمية التشفير المعتمدة للبيانات السرية؟",
+        "gold_ids": [
+          "doc_ar_04_p02_c01",
+          "doc_ar_04_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_04_p01_c01",
+          "doc_ar_04_p02_c01",
+          "doc_ar_01_p02_c01",
+          "doc_ar_04_p03_c01",
+          "doc_ar_11_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_05",
+        "language": "ar",
+        "question": "ما هو الحد السنوي المستهدف لتركيز الجسيمات العالقة PM2.5 في تقرير جودة الهواء وما هي مستهدفات الحافلات الكهربائية بحلول 2030؟",
+        "gold_ids": [
+          "doc_ar_05_p01_c01",
+          "doc_ar_05_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_05_p01_c01",
+          "doc_ar_05_p02_c01",
+          "doc_en_03_p02_c01",
+          "doc_en_03_p01_c01",
+          "doc_en_03_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_06",
+        "language": "ar",
+        "question": "أين يجب استضافة البيانات الحكومية الحساسة وما هي نسبة التوفرية المطلوبة وفق سياسة الحوسبة السحابية؟",
+        "gold_ids": [
+          "doc_ar_06_p01_c01",
+          "doc_ar_06_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_06_p01_c01",
+          "doc_ar_06_p02_c01",
+          "doc_ar_06_p03_c01",
+          "doc_ar_12_p02_c01",
+          "doc_ar_01_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_07",
+        "language": "ar",
+        "question": "ما هو الحد الأقصى للتعرض للضوضاء في بيئة العمل وما هي المهلة المحددة للإبلاغ عن إصابات العمل الجسيمة والوفيات؟",
+        "gold_ids": [
+          "doc_ar_07_p02_c01",
+          "doc_ar_07_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_07_p01_c01",
+          "doc_ar_07_p02_c01",
+          "doc_en_09_p02_c01",
+          "doc_en_03_p02_c01",
+          "doc_ar_11_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_08",
+        "language": "ar",
+        "question": "خلال كم ساعة يجب إخطار الجهة المختصة بحدوث تسريب للبيانات الشخصية وفق نظام حماية البيانات الشخصية؟",
+        "gold_ids": [
+          "doc_ar_08_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_08_p02_c01",
+          "doc_en_09_p02_c01",
+          "doc_ar_08_p03_c01",
+          "doc_ar_08_p01_c01",
+          "doc_en_01_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_09",
+        "language": "ar",
+        "question": "ما هي الضوابط المتعلقة بإدخال البيانات المصنفة في أدوات الذكاء الاصطناعي التوليدي العامة وما هي شروط الإفصاح عن المحتوى؟",
+        "gold_ids": [
+          "doc_ar_09_p02_c01",
+          "doc_ar_09_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_09_p01_c01",
+          "doc_ar_09_p02_c01",
+          "doc_ar_03_p01_c01",
+          "doc_ar_03_p02_c01",
+          "doc_ar_09_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_10",
+        "language": "ar",
+        "question": "كم تبلغ نسبة مساهمة محطات التحلية في الإمداد المائي البلدي وما هو مستهدف خفض استهلاك الفرد اليومي من المياه بحلول 2030؟",
+        "gold_ids": [
+          "doc_ar_10_p02_c01",
+          "doc_ar_10_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_10_p01_c01",
+          "doc_ar_10_p02_c01",
+          "doc_ar_10_p03_c01",
+          "doc_en_07_p03_c01",
+          "doc_ar_05_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_11",
+        "language": "ar",
+        "question": "ما هو الحد الأقصى لزمن احتواء الحوادث السيبرانية من المستوى الحرج P1 وما هي الخوارزمية المستخدمة للتحقق من سلامة الأدلة الجنائية؟",
+        "gold_ids": [
+          "doc_ar_11_p01_c01",
+          "doc_ar_11_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_11_p01_c01",
+          "doc_ar_11_p02_c01",
+          "doc_ar_11_p03_c01",
+          "doc_ar_02_p01_c01",
+          "doc_ar_02_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_12",
+        "language": "ar",
+        "question": "كم بلغت نسبة النضج الرقمي الحكومي العام ونسبة الخدمات الحكومية المرقمنة وفق تقرير التحول الرقمي؟",
+        "gold_ids": [
+          "doc_ar_12_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_12_p01_c01",
+          "doc_ar_12_p03_c01",
+          "doc_ar_12_p02_c01",
+          "doc_ar_01_p03_c01",
+          "doc_en_05_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_13",
+        "language": "ar",
+        "question": "كم مرة يجب إجراء تجارب الإخلاء الوهمي لحالات الطوارئ في بيئات العمل الصناعية وفق الدليل الإرشادي؟",
+        "gold_ids": [
+          "doc_ar_07_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_07_p03_c01",
+          "doc_ar_07_p02_c01",
+          "doc_ar_07_p01_c01",
+          "doc_ar_02_p03_c01",
+          "doc_ar_02_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_14",
+        "language": "ar",
+        "question": "ما هي العقوبات المالية القصوى المقررة لمخالفة نظام حماية البيانات الشخصية؟",
+        "gold_ids": [
+          "doc_ar_08_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_08_p03_c01",
+          "doc_en_09_p03_c01",
+          "doc_ar_08_p01_c01",
+          "doc_ar_08_p02_c01",
+          "doc_en_09_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_15",
+        "language": "ar",
+        "question": "كم تبلغ سعة الخزن الاستراتيجي للمياه في الخزانات التشغيلية الكبرى وكم يوماً تغطي في حالات الطوارئ؟",
+        "gold_ids": [
+          "doc_ar_10_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_10_p03_c01",
+          "doc_ar_10_p01_c01",
+          "doc_ar_10_p02_c01",
+          "doc_ar_07_p03_c01",
+          "doc_en_07_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_ar_16",
+        "language": "ar",
+        "question": "وفقاً لضوابط NIST الأمريكية لإدارة الحسابات (AC-2)، بعد كم يوماً من عدم النشاط يجب تعطيل الحسابات الخاملة آلياً؟",
+        "gold_ids": [
+          "doc_en_01_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_01_p01_c01",
+          "doc_ar_11_p03_c01",
+          "doc_ar_01_p02_c01",
+          "doc_en_01_p02_c01",
+          "doc_ar_06_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_01",
+        "language": "en",
+        "question": "Under NIST SP 800-53 Section AC-2, after how many days of inactivity must system accounts be automatically disabled?",
+        "gold_ids": [
+          "doc_en_01_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_01_p01_c01",
+          "doc_en_01_p02_c01",
+          "doc_en_01_p03_c01",
+          "doc_en_11_p03_c01",
+          "doc_ar_11_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_02",
+        "language": "en",
+        "question": "What are the four control themes of ISO/IEC 27001 Annex A and how many total controls are there?",
+        "gold_ids": [
+          "doc_en_02_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_02_p03_c01",
+          "doc_en_02_p01_c01",
+          "doc_en_02_p02_c01",
+          "doc_en_12_p03_c01",
+          "doc_en_12_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_03",
+        "language": "en",
+        "question": "What is the WHO recommended annual mean guideline concentration limit for PM2.5 and nitrogen dioxide (NO2)?",
+        "gold_ids": [
+          "doc_en_03_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_03_p02_c01",
+          "doc_en_03_p03_c01",
+          "doc_ar_05_p01_c01",
+          "doc_en_03_p01_c01",
+          "doc_en_10_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_04",
+        "language": "en",
+        "question": "What are the core values-based principles for trustworthy AI outlined in the OECD AI Recommendation?",
+        "gold_ids": [
+          "doc_en_04_p01_c01",
+          "doc_en_04_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_04_p01_c01",
+          "doc_en_04_p02_c01",
+          "doc_en_04_p03_c01",
+          "doc_ar_03_p02_c01",
+          "doc_ar_03_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_05",
+        "language": "en",
+        "question": "According to the World Bank Data for Better Lives report, what share of economic value from domestic data do lower-middle-income countries capture?",
+        "gold_ids": [
+          "doc_en_05_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_05_p02_c01",
+          "doc_en_05_p01_c01",
+          "doc_en_05_p03_c01",
+          "doc_en_04_p01_c01",
+          "doc_en_07_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_06",
+        "language": "en",
+        "question": "At what elevation are guardrails required for walking-working surfaces under OSHA regulations, and how many sections must a Safety Data Sheet (SDS) contain?",
+        "gold_ids": [
+          "doc_en_06_p01_c01",
+          "doc_en_06_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_06_p01_c01",
+          "doc_en_06_p03_c01",
+          "doc_ar_07_p02_c01",
+          "doc_en_02_p03_c01",
+          "doc_en_06_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_07",
+        "language": "en",
+        "question": "According to UNEP Global Environmental Outlook, what share of global electricity generation comes from renewables, and what is the global circularity metric?",
+        "gold_ids": [
+          "doc_en_07_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_07_p02_c01",
+          "doc_en_07_p03_c01",
+          "doc_en_07_p01_c01",
+          "doc_en_10_p02_c01",
+          "doc_en_10_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_08",
+        "language": "en",
+        "question": "What cryptographic validation standard is required for Hardware Security Modules (HSM) under Cloud Security Alliance guidance for BYOK?",
+        "gold_ids": [
+          "doc_en_08_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_08_p02_c01",
+          "doc_en_01_p03_c01",
+          "doc_en_11_p02_c01",
+          "doc_en_08_p03_c01",
+          "doc_ar_04_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_09",
+        "language": "en",
+        "question": "What is the mandatory timeframe for notifying a supervisory authority of a data breach under GDPR Article 33, and what are the maximum administrative fines under Article 83?",
+        "gold_ids": [
+          "doc_en_09_p03_c01",
+          "doc_en_09_p02_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_09_p02_c01",
+          "doc_en_09_p03_c01",
+          "doc_ar_08_p02_c01",
+          "doc_en_09_p01_c01",
+          "doc_ar_01_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_10",
+        "language": "en",
+        "question": "What annual improvement rate in primary energy intensity is required to achieve Net Zero by 2050 according to the IEA report?",
+        "gold_ids": [
+          "doc_en_10_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_10_p01_c01",
+          "doc_en_10_p02_c01",
+          "doc_en_10_p03_c01",
+          "doc_en_03_p03_c01",
+          "doc_en_07_p02_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_11",
+        "language": "en",
+        "question": "What are the five operational phases of the incident response lifecycle in the CISA playbook, and what hashing algorithm is required for forensic images?",
+        "gold_ids": [
+          "doc_en_11_p02_c01",
+          "doc_en_11_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_11_p01_c01",
+          "doc_en_11_p02_c01",
+          "doc_en_11_p03_c01",
+          "doc_ar_11_p02_c01",
+          "doc_ar_11_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_12",
+        "language": "en",
+        "question": "What are the four POUR principles of WCAG 2.1 and what is the minimum required visual contrast ratio for standard text under Criterion 1.4.3?",
+        "gold_ids": [
+          "doc_en_12_p02_c01",
+          "doc_en_12_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_12_p02_c01",
+          "doc_en_12_p01_c01",
+          "doc_en_12_p03_c01",
+          "doc_ar_03_p02_c01",
+          "doc_ar_03_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_13",
+        "language": "en",
+        "question": "What is the peak season 8-hour daily maximum ozone (O3) guideline level established by the WHO?",
+        "gold_ids": [
+          "doc_en_03_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_03_p03_c01",
+          "doc_en_03_p02_c01",
+          "doc_en_03_p01_c01",
+          "doc_en_10_p01_c01",
+          "doc_en_10_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_14",
+        "language": "en",
+        "question": "Under the CISA playbook, how long must restored systems be observed in an isolated monitoring segment before returning to production?",
+        "gold_ids": [
+          "doc_en_11_p03_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_11_p03_c01",
+          "doc_en_11_p01_c01",
+          "doc_en_11_p02_c01",
+          "doc_ar_11_p03_c01",
+          "doc_ar_02_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_15",
+        "language": "en",
+        "question": "What are the three core pillars of the social contract for data according to the World Bank Development Report?",
+        "gold_ids": [
+          "doc_en_05_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_en_05_p01_c01",
+          "doc_en_05_p03_c01",
+          "doc_en_05_p02_c01",
+          "doc_en_04_p02_c01",
+          "doc_en_08_p01_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      },
+      {
+        "id": "q_en_16",
+        "language": "en",
+        "question": "According to the Saudi Cloud Computing Regulatory Policy, where must sovereign and restricted government data and their encryption keys be hosted?",
+        "gold_ids": [
+          "doc_ar_06_p01_c01"
+        ],
+        "retrieved_ids": [
+          "doc_ar_06_p01_c01",
+          "doc_en_08_p02_c01",
+          "doc_ar_06_p03_c01",
+          "doc_ar_06_p02_c01",
+          "doc_en_08_p03_c01"
+        ],
+        "reciprocal_rank": 1.0,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0
+      }
+    ]
+  }
+}

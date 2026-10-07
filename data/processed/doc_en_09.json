@@ -1,0 +1,21 @@
+{
+  "document_id": "doc_en_09",
+  "title": "European Union General Data Protection Regulation (GDPR) Compliance Guidelines",
+  "language": "en",
+  "document_type": "policy",
+  "source_url": "https://edpb.europa.eu/sites/default/files/files/file1/edpb_guidelines_202005_consent_en.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "text": "European Union General Data Protection Regulation (GDPR) Compliance Guidelines\nArticle 5: Core Principles Governing the Processing of Personal Data\nPersonal data must be processed lawfully, fairly, and in a transparent manner in relation to the data subject.\nPurpose Limitation mandates that data is collected for specified, explicit, and legitimate purposes and not further processed inco\nData Minimization requires that personal data collected must be adequate, relevant, and limited to what is strictly necessary.\nStorage Limitation stipulates that data is kept in identifiable form for no longer than is necessary for the processing purposes."
+    },
+    {
+      "page": 2,
+      "text": "European Union General Data Protection Regulation (GDPR) Compliance Guidelines\nArticle 33: Mandatory Notification of Personal Data Breaches\nControllers must notify the competent supervisory authority of personal data breaches without undue delay and within 72 hours\nIf notification is not made within 72 hours, it must be accompanied by a written explanation providing legitimate reasons for the d\nWhen a breach is likely to result in high risk to individual rights and freedoms, the controller must also notify the affected data su\nThe breach notification must describe the nature of the breach, affected categories of data, and recommended mitigation action"
+    },
+    {
+      "page": 3,
+      "text": "European Union General Data Protection Regulation (GDPR) Compliance Guidelines\nArticle 83: Administrative Fines and Enforcement Sanctions\nInfringements of core GDPR obligations are subject to administrative fines of up to 20 million EUR or 4% of total worldwide annu\nLesser violations regarding technical records and controller obligations face fines up to 10 million EUR or 2% of global turnover.\nSupervisory authorities consider the gravity, duration, intentional or negligent character, and mitigation actions when setting fine\nConsent under Article 7 must be freely given, specific, informed, and unambiguous, demonstrated through an affirmative act."
+    }
+  ]
+}

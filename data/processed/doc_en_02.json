@@ -1,0 +1,21 @@
+{
+  "document_id": "doc_en_02",
+  "title": "ISO/IEC 27001 Information Security Management Standard Requirements Overview",
+  "language": "en",
+  "document_type": "policy",
+  "source_url": "https://www.iso.org/files/live/sites/isoorg/files/standards/docs/en/iso_27001_overview.pdf",
+  "pages": [
+    {
+      "page": 1,
+      "text": "ISO/IEC 27001 Information Security Management Standard Requirements Overview\nClause 4-6: Context of the Organization, Leadership, and Planning\nISO/IEC 27001 specifies requirements for establishing, implementing, maintaining, and continually improving an ISMS.\nTop management must demonstrate leadership and commitment by ensuring the information security policy is established and a\nThe risk assessment methodology must identify risks associated with the loss of confidentiality, integrity, and availability.\nRisk treatment plans must systematically compare identified security controls against Annex A reference control objectives."
+    },
+    {
+      "page": 2,
+      "text": "ISO/IEC 27001 Information Security Management Standard Requirements Overview\nClause 7-9: Support, Operational Control, and Performance Evaluation\nOrganizations must determine and provide necessary competent resources, awareness training, and documented information.\nOperational planning requires implementing risk treatment actions and maintaining documented evidence of control execution.\nManagement must conduct formal ISMS reviews at planned intervals, at least annually, to ensure ongoing suitability and adequ\nInternal audits must be scheduled and carried out objectively to verify adherence to ISMS requirements and policies."
+    },
+    {
+      "page": 3,
+      "text": "ISO/IEC 27001 Information Security Management Standard Requirements Overview\nAnnex A Control Structure: The 93 Controls across Four Themes\nAnnex A organizes 93 controls into four distinct themes: Organizational (37 controls), People (8), Physical (14), and Technologic\nA mandatory Statement of Applicability (SoA) must document which Annex A controls are selected and justify any control exclus\nControl A.5.23 governs information security for use of cloud services, mandating formal processes for acquisition and managem\nControl A.8.8 mandates technical vulnerability management through regular scanning, risk prioritization, and remediation timelin"
+    }
+  ]
+}

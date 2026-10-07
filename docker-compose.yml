@@ -1,0 +1,19 @@
+services:
+  bilingual-rag:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bilingual-rag:latest
+    container_name: bilingual-rag-api
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_NAME=BAAI/bge-m3
+      - RERANKER_NAME=BAAI/bge-reranker-v2-m3
+      - GENERATION_MODEL=openrouter/free
+      - TOP_K=5
+      - CANDIDATE_K=20
+      - SCORE_THRESHOLD=0.10
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+      - OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+    restart: unless-stopped
