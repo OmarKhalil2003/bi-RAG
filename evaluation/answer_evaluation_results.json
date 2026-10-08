@@ -3,11 +3,11 @@
     "total_questions": 40,
     "answerable_questions": 32,
     "unanswerable_questions": 8,
-    "fully_correct": 14,
-    "partially_correct": 14,
-    "answer_correctness": 0.4375,
-    "partial_correctness": 0.4375,
-    "unsupported_answer_rate": 0.0,
+    "fully_correct": 22,
+    "partially_correct": 6,
+    "answer_correctness": 0.6875,
+    "partial_correctness": 0.1875,
+    "unsupported_answer_rate": 0.0312,
     "unanswerable_refusal_accuracy": 1.0
   },
   "records": [
@@ -20,19 +20,19 @@
       "gold_chunk_ids": [
         "doc_ar_01_p02_c01"
       ],
-      "generated_answer": "سياسة حوكمة البيانات الوطنية المادة الثالثة: معايير تصنيف البيانات وإدارتها يجب على كافة الجهات تصنيف بياناتها المخزنة والمعالجة وفقا لسياسة التصنيف الوطنية إلى أربعة مستويات محددة. يحظر مشاركة أي بيانات مصنفة سري أو سري للغاية مع جهات خارجية دون موافقة كتابية مسبقة من الجهة المصدرة. [source: doc_ar_01_p02_c01]",
+      "generated_answer": "وفقاً للمادة الرابعة من سياسة حوكمة البيانات الوطنية، تلتزم الجهة بالاحتفاظ بسجلات التدقيق الأمني وسجلات الوصول للبيانات لمدة لا تقل عن **5 سنوات تقويمية كاملة** [source: doc_ar_01_p02_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_ar_01_p02_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_01_p02_c01",
-      "top_score": 0.9990022778511047,
-      "latency_ms": 4949.45,
-      "evaluation": "incorrect",
-      "correctness_score": 0,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 5664.64,
+      "evaluation": "fully_correct",
+      "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=0.00, word_overlap=0.08, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=1.00, unsupported_nums=[]"
     },
     {
       "id": "q_ar_02",
@@ -43,19 +43,19 @@
       "gold_chunk_ids": [
         "doc_ar_02_p01_c01"
       ],
-      "generated_answer": "(ECC-1:2018) ضوابط الأمن السيبراني الأساسية المجال الأول: حوكمة الأمن السيبراني واستراتيجية الدفاع يجب على كافة الجهات إعداد وتوثيق استراتيجية معتمدة للأمن السيبراني متوافقة مع الأهداف المؤسسية. يتعين مراجعة سياسات وإجراءات الأمن السيبراني دوريا واعتمادها من قبل صاحب الصلاحية مرة واحدة على الأقل سنويا. [source: doc_ar_02_p01_c01]",
-      "refused": false,
-      "refusal_reason": null,
+      "generated_answer": "2.  **Identify Relevant Passages:**\n   - I need to find info about password length requirements and MFA in ECC-1:2018.\n   - Looking at chunk `doc_ar_02_p01_c01`:\n     - \"يجب تطبيق متطلبات المصادقة متعددة العوامل. يوما 90  خانة مع إلزامية تعقيد الرموز وتغييرها كل 12 يجب ألا يقل الحد الأدنى لطول كلمات المرور عن.\"\n     - This seems garbled/poorly OCR'd or machine-translated. Let parse it carefully.\n     - \"يجب تطبيق متطلبات المصادقة متعددة العوامل.\" -> Must apply MFA requirements.\n     - \"يوما 90  خانة مع إلزامية تعقيد الرموز وتغييرها كل 12\" -> Probably \"كل 90 يوماً، مع إلزامية تعقيد الرموز وتغييرها كل 12 [something]\". Might be \"كل 90 يوماً، مع إلزامية تعقيد الرموز وتغييرها كل 12 شهراً\" or \"كل 12 يوماً\"? Actually, typical policy: change every 90 days. The text says \"يوما 90\" which likely means \"every 90 days\". \" خانة\" might be \"و\" or something. \"مع إلزامية تعقيد الرموز وتغييرها كل 12\" -> maybe \"وتغييرها كل 12 شهراً\" or \"كل 12 يوماً\". Need to see context.\n     - \"يجب ألا يقل الحد الأدنى لطول كلمات المرور عن.\" -> \"The minimum password length must not be less than.\" But the actual number is cut off or missing. Wait, maybe it's in another part? Let me read carefully: \"يجب ألا يقل الحد الأدنى لطول كلمات المرور عن.\" It ends there. Possibly the number is missing in the passage, or maybe it's implied later? Let me check other chunks.\n   - Check chunk `doc_ar_02_p02_c01`: talks about vulnerability scanning every 3 months, penetration testing annually, etc. No password length.\n   - chunk `doc_ar_02_p03_c01`: about backup and recovery. No password length.\n   - chunk `doc_ar_11_p01_c01`: about incident response levels, containment within 1 hour, report within 12 hours. No password length.\n   - chunk `doc_ar_11_p02_c01`: about digital evidence, SHA-256, chain of custody. No password length.\n\n   So the only passage with password/MFA info is `doc_ar_02_p01_c01`. The text is: \"يجب تطبيق متطلبات المصادقة متعددة العوامل. يوما 90  خانة مع إلزامية تعقيد الرموز وتغييرها كل 12 يجب ألا يقل الحد الأدنى لطول كلمات المرور عن.\"\n\n   This is clearly garbled. Possible interpretations:\n   - \"يجب تطبيق متطلبات المصادقة متعددة العوامل.\" (Must apply MFA)\n   - \"يوما 90\" = \"every 90 days\"\n   - \"خانة\" maybe \"و\" or \"وأن\" \n   - \"مع إلزامية تعقيد الرموز وتغييرها كل 12\" = \"with mandatory complexity and change every 12 [months/days]\"\n   - \"يجب ألا يقل الحد الأدنى لطول كلمات المرور عن\" = \"The minimum password length must not be less than [X]\"\n\n   The passage doesn't explicitly state the minimum password length value. It cuts off. I need to report what's in the text, and if it's incomplete, state that the provided passages don't contain the complete numeric requirement, but I can cite what is there.\n\n   Wait, the instructions say: \"If the provided passages do not contain sufficient evidence to answer, state clearly that the answer is not available in the provided documents.\" But also: \"Support every factual claim, numeric figure, or timeframe with an explicit citation in square brackets: [source: chunk_id].\"\n\n   I need to answer the question: \"ما هي شروط طول كلمة المرور واستخدام المصادقة متعددة العوامل في ضوابط الأمن السيبراني الأساسية (ECC-1:2018)?\"",
+      "refused": true,
+      "refusal_reason": "llm_evidence_insufficient",
       "citations": [
-        "doc_ar_02_p01_c01"
+        "chunk_id"
       ],
       "top_retrieved_chunk_id": "doc_ar_02_p01_c01",
-      "top_score": 0.9984092116355896,
-      "latency_ms": 4824.66,
-      "evaluation": "incorrect",
+      "top_score": 0.03278688524590164,
+      "latency_ms": 12689.8,
+      "evaluation": "incorrect_refusal",
       "correctness_score": 0,
       "unsupported": false,
-      "eval_notes": "number_match=0.00, word_overlap=0.00, unsupported_nums=[]"
+      "eval_notes": "Answerable question was refused by system."
     },
     {
       "id": "q_ar_03",
@@ -66,19 +66,19 @@
       "gold_chunk_ids": [
         "doc_ar_03_p01_c01"
       ],
-      "generated_answer": "الإطار الأخلاقي الوطني للذكاء الاصطناعي المبدأ الأول: العدالة والإنصاف ومنع التحيز الخوارزمي يجب تصميم نماذج الذكاء الاصطناعي وتدريبها لضمان عدم التمييز ضد الأفراد أو الفئات بناء على أي صفات غير موضوعية. تلتزم الجهات المطورة بإجراء اختبارات دورية للكشف عن التحيز الإحصائي في بيانات التدريب ومعالجتها قبل الإطلاق التجاري. المبدأ الثاني: الشفافية والقابلية للتفسير الخوارزمي يجب تمكين المستخدمين من فهم القرارات الصادرة عن أنظمة الذكاء الاصطناعي وتوضيح العوامل الرئيسية المؤثرة في النتيجة. يتعين الإفصاح صراحة للمستخدمين عندما يتفاعلون مع نظام ذكاء اصطناعي محادثاتي أو وكيل افتراضي آلي. [source: doc_ar_03_p01_c01]",
+      "generated_answer": "المبادئ الأخلاقية الخمسة للذكاء الاصطناعي [source: doc_ar_03_p01_c01, doc_ar_03_p02_c01, doc_ar_03_p03_c01]:\n1. العدالة والإنصاف ومنع التحيز الخوارزمي.\n2. الشفافية والقابلية للتفسير الخوارزمي.\n3. الأمان والموثوقية التقنية للنماذج.\n4. الخصوصية وحوكمة البيانات.\n5. المساءلة والإشراف البشري الفعال.\n\nالإجراء المطلوب قبل الإطلاق التجاري: إجراء اختبارات دورية للكشف عن التحيز الإحصائي في بيانات التدريب ومعالجته قبل الإطلاق التجاري [source: doc_ar_03_p01_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_ar_03_p01_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_03_p01_c01",
-      "top_score": 0.9994664788246155,
-      "latency_ms": 6293.76,
-      "evaluation": "fully_correct",
-      "correctness_score": 2,
-      "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=0.58, unsupported_nums=[]"
+      "top_score": 0.03278688524590164,
+      "latency_ms": 6128.41,
+      "evaluation": "incorrect",
+      "correctness_score": 0,
+      "unsupported": true,
+      "eval_notes": "number_match=1.00, word_overlap=0.73, unsupported_nums=['4', '5']"
     },
     {
       "id": "q_ar_04",
@@ -90,19 +90,20 @@
         "doc_ar_04_p01_c01",
         "doc_ar_04_p02_c01"
       ],
-      "generated_answer": "الدليل الإرشادي لتصنيف البيانات الوطنية وحمايتها الفصل الأول: مستويات تصنيف البيانات الأربعة تتدرج البيانات الحكومية في أربعة مستويات: سري للغاية، سري، مقيد، وعام. المستوى الأول )سري للغاية(: البيانات التي يؤدي إفشاؤها إلى أضرار جسيمة بالأمن القومي أو السيادة أو المصالح الحيوية العليا. المستوى الثاني )سري(: البيانات التي يسبب الكشف عنها ضررا بالغا بالسمعة المؤسسية أو الأنشطة الحكومية أو الاقتصادية. المستوى الثالث )مقيد(: البيانات المخصصة للاستخدام الداخلي المحدود والتي يؤدي تداولها العام إلى إرباك تشغيلي طفيف. المستوى الرابع )عام(: البيانات المفتوحة المتاحة لعموم الجمهور بدون قيود على النشر أو التداول. [source: doc_ar_04_p01_c01]",
+      "generated_answer": "2.  **Identify Relevant Passages:**\n   - I need to find info about \"مستويات تصنيف البيانات الأربعة\" (four levels of data classification) and \"خوارزمية التشفير المعتمدة للبيانات السرية\" (approved encryption algorithm for secret data).\n\n   Let's scan the chunks:\n\n   - `doc_ar_04_p01_c01` (page 1 of the guide): Lists the four levels: \"سري للغاية، سري، مقيد، وعام\". It also mentions AES-256 encryption standard in the context of \"الفصل الثاني: معايير التشفير وضوابط الحماية الميدانية\". Wait, let me check the exact text.\n\n     Text from `doc_ar_04_p01_c01`:\n     \"الفصل الأول: مستويات تصنيف البيانات الأربعة تتدرج البيانات الحكومية في أربعة مستويات: سري للغاية، سري، مقيد، وعام. المستوى الأول )سري للغاية(: البيانات التي يؤدي إفشاؤها إلى أضرار جسيمة بالأمن القومي أو السيادة أو المصالح الحيوية العليا. المستوى الثاني )سري(: البيانات التي يسبب الكشف عنها ضررا بالغا بالسمعة المؤسسية أو الأنشطة الحكومية أو الاقتصادية. المستوى الثالث )مقيد(: البيانات المخصصة للاستخدام الداخلي المحدود والتي يؤدي تداولها العام إلى إرباك تشغيلي طفيف. المستوى الرابع )عام(: البيانات المفتوحة المتاحة لعموم الجمهور بدون قيود على النشر أو التداول.\"\n\n     So this chunk gives the four levels.\n\n   - For encryption algorithm: Look at `doc_ar_04_p02_c01` (page 2 of the guide):\n     \"الفصل الثاني: معايير التشفير وضوابط الحماية الميدانية AES-256 يجب تشفير البيانات المصنفة سري للغاية وسري أثناء التخزين وأثناء النقل باستخدام خوارزمية التشفير القياسية.\"\n\n     So the approved algorithm is AES-256.\n\n   - Also `doc_ar_04_p02_c01` mentions: \"HSM يجب إدارة مفاتيح التشفير بشكل مستقل وتغيير المفاتيح التشفيرية سنويا مع حفظها داخل وحدات حماية أجهزة التشفير.\" But the key algorithm asked is AES-256.\n\n   - Check if there's any other mention of encryption algorithm for \"secret\" data specifically. The passage says \"يجب تشفير البيانات المصنفة سري للغاية وسري أثناء التخزين وأثناء النقل باستخدام خوارزمية التشفير القياسية.\" It doesn't explicitly say \"AES-256\" is for secret data only, but the context is under \"معايير التشفير\" and the text starts with \"AES-256\". So AES-256 is the standard.\n\n   - Also `doc_ar_01_p02_c01` talks about classification and retention but not encryption algorithm.\n   - `doc_ar_04_p03_c01` talks about disposal.\n   - `doc_ar_06_p01_c01` talks about cloud computing, data sovereignty, but not the specific encryption algorithm for secret data.\n\n   So the two answers are:\n   1. Four levels: سري للغاية، سري، مقيد، وعام (from `doc_ar_04_p01_c01`)\n   2. Approved encryption algorithm for secret data: AES-256 (from `doc_ar_04_p02_c01`)\n\n   Draft:\n   المستويات الأربعة لتصنيف البيانات هي: سري للغاية، سري، مقيد، وعام. [source: doc_ar_04_p01_c01]\n   الخوارزمية المعتمدة لتشفير البيانات السرية هي AES-256. [source: doc_ar_04_p02_c01]\n\n   Check requirements:\n   - Language",
       "refused": false,
       "refusal_reason": null,
       "citations": [
-        "doc_ar_04_p01_c01"
+        "doc_ar_04_p01_c01",
+        "doc_ar_04_p02_c01"
       ],
-      "top_retrieved_chunk_id": "doc_ar_04_p01_c01",
-      "top_score": 0.9988489151000977,
-      "latency_ms": 7318.11,
-      "evaluation": "partially_correct",
-      "correctness_score": 1,
+      "top_retrieved_chunk_id": "doc_ar_04_p02_c01",
+      "top_score": 0.03252247488101534,
+      "latency_ms": 58290.02,
+      "evaluation": "fully_correct",
+      "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=0.00, word_overlap=0.27, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.87, unsupported_nums=[]"
     },
     {
       "id": "q_ar_05",
@@ -121,8 +122,8 @@
         "doc_ar_05_p01_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_05_p01_c01",
-      "top_score": 0.9953370094299316,
-      "latency_ms": 5097.72,
+      "top_score": 0.03252247488101534,
+      "latency_ms": 19760.37,
       "evaluation": "partially_correct",
       "correctness_score": 1,
       "unsupported": false,
@@ -138,19 +139,20 @@
         "doc_ar_06_p01_c01",
         "doc_ar_06_p02_c01"
       ],
-      "generated_answer": "سياسة الحوسبة السحابية وأمن البيانات الحكومية (CSPs) المادة الأولى: تصنيف مقدمي الخدمات السحابية (يصنف مقدمو الخدمات السحابية المعتمدون إلى ثلاث فئات تنظيمية رئيسية: الفئة )أ(، الفئة )ب(، والفئة )ج. تختص الفئة )ج( بتقديم الخدمات للجهات الحكومية واستضافة البيانات ذات الحساسية العالية والأنظمة الوطنية الحرجة. المادة الثانية: متطلبات السيادة الرقمية وإقامة البيانات يجب أن تكون مراكز البيانات التي تستضيف بيانات حكومية أو بيانات مقيدة ومفاتيح تشفيرها موجودة جغرافيا داخل حدود المملكة. يحظر تخزين أو توجيه أو معالجة البيانات الحكومية الحساسة عبر مراكز بيانات أو خوادم وسيطة تقع خارج الاختصاص القضائي الوطني. [source: doc_ar_06_p01_c01]",
+      "generated_answer": "يجب استضافة البيانات الحكومية الحساسة في مراكز بيانات موجودة جغرافياً داخل حدود المملكة [source: doc_ar_06_p01_c01]، مع حظر تخزينها أو توجيهها عبر مراكز بيانات تقع خارج الاختصاص القضائي الوطني [source: doc_ar_06_p01_c01].\n\nنسبة التوفرية المطلوبة للخدمة السحابية لا تقل عن 99.9% [source: doc_ar_06_p02_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
-        "doc_ar_06_p01_c01"
+        "doc_ar_06_p01_c01",
+        "doc_ar_06_p02_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_06_p01_c01",
-      "top_score": 0.986783504486084,
-      "latency_ms": 8346.07,
-      "evaluation": "partially_correct",
-      "correctness_score": 1,
+      "top_score": 0.03252247488101534,
+      "latency_ms": 3800.04,
+      "evaluation": "fully_correct",
+      "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=0.00, word_overlap=0.62, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.29, unsupported_nums=[]"
     },
     {
       "id": "q_ar_07",
@@ -162,19 +164,19 @@
         "doc_ar_07_p01_c01",
         "doc_ar_07_p02_c01"
       ],
-      "generated_answer": "دليل السلامة والصحة المهنية في بيئات العمل الصناعية (PPE) الباب الأول: مهمات الوقاية الشخصية الإلزامية يجب تزويد العاملين بمهمات الوقاية الشخصية المطابقة للمواصفات القياسية مجانا وتدريبهم على استخدامها وصيانتها. يشترط ارتداء الخوذات الواقية وأحذية السلامة المضادة للانزلاق والنظارات الواقية في كافة مواقع العمل الإنشائية والصناعية. الباب الثاني: حدود التعرض المهني للضوضاء في بيئة العمل ساعات يوميا 8 ( لمدة وردية عمل لا تتجاوزdBA)  ديسيبل 85 الحد الأقصى المسموح به للتعرض للضوضاء المستمرة هو. ديسيبل، يلزم صاحب العمل بتوفير واقيات الأذن الإلزامية وتخفيض ساعات التعرض الميداني 85 في حال زيادة مستوى الضوضاء عن. [source: doc_ar_07_p01_c01]",
+      "generated_answer": "الحد الأقصى المسموح به للتعرض المستمر للضوضاء في بيئة العمل هو **85 ديسيبل** خلال وردية عمل لا تتجاوز 8 ساعات يومياً، ويُلزم صاحب العمل بتوفير واقيات الأذن وتخفيض ساعات التعرض الميداني عند تجاوز هذا المستوى [source: doc_ar_07_p02_c01].\n\nأما المهلة المحددة للإبلاغ عن إصابات العمل الجسيمة والوفيات فهي **خلال 24 ساعة** كحد أقصى، مع إبلاغ فوري لوزارة الموارد البشرية والجهات المختصة [source: doc_ar_07_p02_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
-        "doc_ar_07_p01_c01"
+        "doc_ar_07_p02_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_07_p01_c01",
-      "top_score": 0.8812986016273499,
-      "latency_ms": 5729.41,
-      "evaluation": "partially_correct",
-      "correctness_score": 1,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 8632.2,
+      "evaluation": "fully_correct",
+      "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=0.67, word_overlap=0.33, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.52, unsupported_nums=[]"
     },
     {
       "id": "q_ar_08",
@@ -185,19 +187,19 @@
       "gold_chunk_ids": [
         "doc_ar_08_p02_c01"
       ],
-      "generated_answer": "نظام حماية البيانات الشخصية ولائحته التنفيذية الفصل الثالث: متطلبات الإخطار بحوادث تسريب البيانات ساعة من وقت علمها بحدوث تسريب أو اختراق أمني للبيانات 72 يجب على جهة التحكم إخطار الجهة المختصة فورا وخلال مدة لا تتجاوز. إذا كان التسريب يشكل خطرا جسيما على حقوق أصحاب البيانات أو أمانهم الشخصي، يجب إخطار أصحاب البيانات دون تأخير غير مبرر. (DPO) الفصل الرابع: مسؤول حماية البيانات الشخصية (DPO) يلزم النظام الجهات التي تمارس معالجة واسعة للبيانات الحساسة أو متابعة منتظمة للأفراد بتعيين مسؤول مستقل لحماية البيانات. يتولى مسؤول حماية البيانات مراقبة الامتثال للنظام وتقديم المشورة الفنية والتنسيق مع الجهة التنظيمية المختصة. [source: doc_ar_08_p02_c01]",
+      "generated_answer": "يجب إخطار الجهة المختصة بحدوث تسريب البيانات الشخصية خلال **72 ساعة** من وقت علم الجهة بالتسريب أو الاختراق الأمني [source: doc_ar_08_p02_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_ar_08_p02_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_08_p02_c01",
-      "top_score": 0.997962474822998,
-      "latency_ms": 7415.81,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 4137.49,
       "evaluation": "fully_correct",
       "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=1.00, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.43, unsupported_nums=[]"
     },
     {
       "id": "q_ar_09",
@@ -209,19 +211,20 @@
         "doc_ar_09_p01_c01",
         "doc_ar_09_p02_c01"
       ],
-      "generated_answer": "دليل حوكمة واستخدام أدوات الذكاء الاصطناعي التوليدي الفصل الأول: الاستخدام المؤسسي المقبول لنماذج الذكاء الاصطناعي يحظر بشكل قاطع إدخال أو تحميل أي بيانات حكومية مصنفة )سري أو سري للغاية( في منصات الذكاء الاصطناعي التوليدي العامة غير المعتمدة. يحظر إدخال البيانات الشخصية أو الأسرار التجارية أو بيانات المرضى الصحية في أي أدوات ذكاء اصطناعي لا تضمن خصوصية التخزين المحلي. [source: doc_ar_09_p01_c01]",
+      "generated_answer": "يُحظر إدخال أو تحميل أي بيانات حكومية مصنفة (سري أو سري للغاية) في منصات الذكاء الاصطناعي التوليدي العامة غير المعتمدة، كما يُحظر إدخال البيانات الشخصية أو الأسرار التجارية أو بيانات المرضى الصحية في أدوات الذكاء الاصطناعي التي لا تضمن خصوصية التخزين المحلي. [source: doc_ar_09_p01_c01]\n\nأما شروط الإفصاح عن المحتوى فتتطلب تضمين أي محتوى نصي أو صوتي أو مرئي تم توليده بالكامل بواسطة الذكاء الاصطناعي إفصاحاً صريحاً يوضح أنه مولد آلياً، مع وجوب تطبيق علامة مائية رقمية خفية على الصور ومقاطع الفيديو المنتجة آلياً لضمان إمكانية تعقب مصدرها. [source: doc_ar_09_p03_c01]",
       "refused": false,
       "refusal_reason": null,
       "citations": [
-        "doc_ar_09_p01_c01"
+        "doc_ar_09_p01_c01",
+        "doc_ar_09_p03_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_09_p01_c01",
-      "top_score": 0.9841135144233704,
-      "latency_ms": 5930.12,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 7779.69,
       "evaluation": "fully_correct",
       "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=0.52, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.81, unsupported_nums=[]"
     },
     {
       "id": "q_ar_10",
@@ -240,8 +243,8 @@
         "doc_ar_10_p01_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_10_p01_c01",
-      "top_score": 0.9893380403518677,
-      "latency_ms": 5184.09,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 19179.0,
       "evaluation": "partially_correct",
       "correctness_score": 1,
       "unsupported": false,
@@ -257,19 +260,20 @@
         "doc_ar_11_p01_c01",
         "doc_ar_11_p02_c01"
       ],
-      "generated_answer": "دليل إجراءات الاستجابة للحوادث والتهديدات السيبرانية المرحلة الأولى: تصنيف مستويات خطورة الحوادث السيبرانية ( )منخفضP 4 ،( )متوسطP 3 ،( )عالي الخطورةP 2 ،( )حرج جداP 1 :تقسم الحوادث السيبرانية إلى أربعة مستويات رئيسية. يشمل حوادث تعطل البنية التحتية الحيوية، واختراق شبكات التحكم الصناعي، وتفشي برمجيات الفدية الشاملP 1 المستوى. المرحلة الثانية: إجراءات وزمن الاحتواء الفوري للحادث خلال مدة أقصاها ساعة واحدة من تأكيد الحادثP 1 يجب على فريق الاستجابة بدء إجراءات العزل المنطقي وعزل الأنظمة المتأثرة لحوادث. ساعة من بدء التعامل مع الحادث السيبراني 12 يتعين إصدار تقرير فني أولي بالأدلة الجنائية والمسارات المخترقة خلال. [source: doc_ar_11_p01_c01]",
+      "generated_answer": "الحد الأقصى لزمن الاحتواء الفوري للحوادث من المستوى الحرج P1 هو **ساعة واحدة** من تأكيد الحادث [المصدر: doc_ar_11_p01_c01].\nيتم التحقق من سلامة الأدلة الجنائية باستخدام خوارزمية **SHA-256** [المصدر: doc_ar_11_p02_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
-        "doc_ar_11_p01_c01"
+        "doc_ar_11_p01_c01",
+        "doc_ar_11_p02_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_11_p01_c01",
-      "top_score": 0.9218392372131348,
-      "latency_ms": 6061.48,
-      "evaluation": "partially_correct",
-      "correctness_score": 1,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 11735.86,
+      "evaluation": "fully_correct",
+      "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=0.00, word_overlap=0.52, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.33, unsupported_nums=[]"
     },
     {
       "id": "q_ar_12",
@@ -280,19 +284,19 @@
       "gold_chunk_ids": [
         "doc_ar_12_p01_c01"
       ],
-      "generated_answer": "تقرير التحول الرقمي الحكومي ومؤشرات النضج السنوي الفصل الأول: المؤشر العام للنضج الرقمي الحكومي نقطة مئوية 4.2  محققا نموا سنويا بمقدار%86.4 سجل المؤشر العام للنضج الرقمي للجهات الحكومية معدلا بلغ. من إجمالي مصفوفة الخدمات المستهدفة%92 بلغت نسبة رقمنة الخدمات الحكومية الأساسية الموجهة للأفراد والشركات. مليار معاملة رقمية خلال العام المالي 1.2 تجاوز إجمالي المعاملات والعمليات الرقمية المنفذة عبر المنصات الحكومية الموحدة. [source: doc_ar_12_p01_c01]",
+      "generated_answer": "بلغت نسبة النضج الرقمي الحكومي العام **4.2 نقطة** (بنمو سنوي قدره 86.4%) [المصدر: doc_ar_12_p01_c01]، بينما بلغت نسبة الخدمات الحكومية المرقمنة **92% من إجمالي مصفوفة الخدمات المستهدفة** [المصدر: doc_ar_12_p01_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_ar_12_p01_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_12_p01_c01",
-      "top_score": 0.9998481273651123,
-      "latency_ms": 4660.79,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 10907.86,
       "evaluation": "fully_correct",
       "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=0.92, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.46, unsupported_nums=[]"
     },
     {
       "id": "q_ar_13",
@@ -303,19 +307,19 @@
       "gold_chunk_ids": [
         "doc_ar_07_p03_c01"
       ],
-      "generated_answer": "دليل السلامة والصحة المهنية في بيئات العمل الصناعية الباب الخامس: خطط الطوارئ وتجارب الإخلاء المنتظمة يجب وضع خطة طوارئ وإخلاء شاملة ومعلنة لجميع العاملين، مع توفير مخارج طوارئ مضاءة وخالية من العوائق. يتعين إجراء تجارب إخلاء وهمي شاملة مرتين على الأقل سنويا لتدريب فرق الطوارئ والعاملين على سرعة الاستجابة. يجب فحص وصيانة طفايات الحريق وشبكات الرش الآلي ووسائل الإنذار بصفة دورية كل ثلاثة أشهر بمعرفة فنيين مؤهلين. [source: doc_ar_07_p03_c01]",
+      "generated_answer": "يجب إجراء تجارب الإخلاء الوهمي مرتين على الأقل سنوياً [source: doc_ar_07_p03_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_ar_07_p03_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_07_p03_c01",
-      "top_score": 0.9976271986961365,
-      "latency_ms": 4783.49,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 13957.9,
       "evaluation": "fully_correct",
       "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=1.00, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.36, unsupported_nums=[]"
     },
     {
       "id": "q_ar_14",
@@ -326,19 +330,19 @@
       "gold_chunk_ids": [
         "doc_ar_08_p03_c01"
       ],
-      "generated_answer": "نظام حماية البيانات الشخصية ولائحته التنفيذية الفصل الخامس: نقل البيانات الشخصية خارج الحدود الوطنية يحظر نقل البيانات الشخصية خارج المملكة إلا في الحالات المحددة نظاما وبعد التأكد من توفر مستوى مناسب من الحماية للبيانات. تتطلب عمليات النقل الدولي تقييما مسبقا لمخاطر النقل وضمان عدم المساس بالأمن القومي أو المصالح الحيوية للمملكة. [source: doc_ar_08_p03_c01]",
+      "generated_answer": "الحد الأقصى للغرامة هو خمسة ملايين ريال سعودي، مع إمكانية مضاعفتها في حال تكرار المخالفة. [source: doc_ar_08_p03_c01]",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_ar_08_p03_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_08_p03_c01",
-      "top_score": 0.9597592949867249,
-      "latency_ms": 4795.83,
-      "evaluation": "partially_correct",
-      "correctness_score": 1,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 12846.28,
+      "evaluation": "fully_correct",
+      "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=0.00, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.36, unsupported_nums=[]"
     },
     {
       "id": "q_ar_15",
@@ -349,19 +353,19 @@
       "gold_chunk_ids": [
         "doc_ar_10_p03_c01"
       ],
-      "generated_answer": "التقرير الوطني لإدارة الموارد المائية وكفاءة الاستهلاك المحور الثالث: الخزن الاستراتيجي والأمن المائي مليون متر مكعب لتأمين الاحتياجات في حالات الطوارئ 120 ارتفعت سعة الخزن الاستراتيجي للمياه في الخزانات التشغيلية الكبرى لتصل إلى. يوما متواصلة في الحالات الطارئة دون الحاجة للضخ الفوري 14 تضمن السعة التخزينية الحالية استمرارية الإمداد المائي الحضري لمدة. مليار متر مكعب 2.5 تم تنفيذ مشاريع حصاد مياه الأمطار وبناء السدود الترابية والخرسانية بطاقة استيعابية إجمالية بلغت. [source: doc_ar_10_p03_c01]",
+      "generated_answer": "سعة الخزن الاستراتيجي للمياه في الخزانات التشغيلية الكبرى تبلغ 2.5 مليار متر مكعب وتضمن استمرارية الإمداد المائي الحضري لمدة 14 يوماً متواصلة في حالات الطوارئ دون الحاجة للضخ الفوري. [source: doc_ar_10_p03_c01]",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_ar_10_p03_c01"
       ],
       "top_retrieved_chunk_id": "doc_ar_10_p03_c01",
-      "top_score": 0.9987218976020813,
-      "latency_ms": 5352.09,
-      "evaluation": "fully_correct",
-      "correctness_score": 2,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 4466.22,
+      "evaluation": "partially_correct",
+      "correctness_score": 1,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=0.94, unsupported_nums=[]"
+      "eval_notes": "number_match=0.50, word_overlap=0.75, unsupported_nums=[]"
     },
     {
       "id": "q_ar_16",
@@ -372,19 +376,19 @@
       "gold_chunk_ids": [
         "doc_en_01_p01_c01"
       ],
-      "generated_answer": "NIST SP 800-53 Rev 5: Security and Privacy Controls for Information Systems Chapter 1: Scope, Applicability, and Control Framework Architecture NIST SP 800-53 provides a catalog of security and privacy controls for federal and institutional information systems. The controls are organized into twenty families covering management, operational, technical, and privacy protection domains. [source: doc_en_01_p01_c01]",
+      "generated_answer": "وفقاً لضوابط NIST الأمريكية لإدارة الحسابات (AC-2)، يجب تعطيل الحسابات الخاملة آلياً بعد **90 يوماً** من عدم النشاط [source: doc_en_01_p01_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_en_01_p01_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_01_p01_c01",
-      "top_score": 0.991925060749054,
-      "latency_ms": 6077.66,
-      "evaluation": "incorrect",
-      "correctness_score": 0,
+      "top_score": 0.03252247488101534,
+      "latency_ms": 23341.87,
+      "evaluation": "fully_correct",
+      "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=0.00, word_overlap=0.08, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.54, unsupported_nums=[]"
     },
     {
       "id": "q_ar_un_01",
@@ -395,10 +399,10 @@
       "gold_chunk_ids": [],
       "generated_answer": "الإجابة غير متوفرة في المستندات المقدمة.",
       "refused": true,
-      "refusal_reason": "low_retrieval_confidence (top_score=0.0005 < 0.1)",
+      "refusal_reason": "low_retrieval_confidence (dense=0.4303 < 0.5, bm25=5.62)",
       "citations": [],
-      "top_retrieved_chunk_id": "doc_en_09_p03_c01",
-      "top_score": 0.0005482983542606235,
+      "top_retrieved_chunk_id": "doc_ar_08_p03_c01",
+      "top_score": 0.03278688524590164,
       "latency_ms": 0.0,
       "evaluation": "correct_refusal"
     },
@@ -411,10 +415,10 @@
       "gold_chunk_ids": [],
       "generated_answer": "الإجابة غير متوفرة في المستندات المقدمة.",
       "refused": true,
-      "refusal_reason": "low_retrieval_confidence (top_score=0.0011 < 0.1)",
+      "refusal_reason": "low_retrieval_confidence (dense=0.3623 < 0.5, bm25=3.85)",
       "citations": [],
-      "top_retrieved_chunk_id": "doc_en_10_p01_c01",
-      "top_score": 0.0011384548852220178,
+      "top_retrieved_chunk_id": "doc_ar_12_p01_c01",
+      "top_score": 0.031746031746031744,
       "latency_ms": 0.0,
       "evaluation": "correct_refusal"
     },
@@ -427,10 +431,10 @@
       "gold_chunk_ids": [],
       "generated_answer": "الإجابة غير متوفرة في المستندات المقدمة.",
       "refused": true,
-      "refusal_reason": "low_retrieval_confidence (top_score=0.0004 < 0.1)",
+      "refusal_reason": "low_retrieval_confidence (dense=0.3074 < 0.5, bm25=1.37)",
       "citations": [],
-      "top_retrieved_chunk_id": "doc_en_09_p03_c01",
-      "top_score": 0.00035487773129716516,
+      "top_retrieved_chunk_id": "doc_ar_08_p03_c01",
+      "top_score": 0.027242401779095628,
       "latency_ms": 0.0,
       "evaluation": "correct_refusal"
     },
@@ -443,10 +447,10 @@
       "gold_chunk_ids": [],
       "generated_answer": "الإجابة غير متوفرة في المستندات المقدمة.",
       "refused": true,
-      "refusal_reason": "low_retrieval_confidence (top_score=0.0003 < 0.1)",
+      "refusal_reason": "low_retrieval_confidence (dense=0.2946 < 0.5, bm25=5.34)",
       "citations": [],
-      "top_retrieved_chunk_id": "doc_en_09_p03_c01",
-      "top_score": 0.00027691404102370143,
+      "top_retrieved_chunk_id": "doc_ar_11_p02_c01",
+      "top_score": 0.03009207275993712,
       "latency_ms": 0.0,
       "evaluation": "correct_refusal"
     },
@@ -459,19 +463,19 @@
       "gold_chunk_ids": [
         "doc_en_01_p01_c01"
       ],
-      "generated_answer": "NIST SP 800-53 Rev 5: Security and Privacy Controls for Information Systems Chapter 1: Scope, Applicability, and Control Framework Architecture NIST SP 800-53 provides a catalog of security and privacy controls for federal and institutional information systems. The controls are organized into twenty families covering management, operational, technical, and privacy protection domains. [source: doc_en_01_p01_c01]",
+      "generated_answer": "Under NIST SP 800-53 Section AC-2, system accounts must be automatically disabled after a maximum inactivity period of **90 days** [source: doc_en_01_p01_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_en_01_p01_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_01_p01_c01",
-      "top_score": 0.9991703033447266,
-      "latency_ms": 5571.73,
-      "evaluation": "partially_correct",
-      "correctness_score": 1,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 2668.36,
+      "evaluation": "fully_correct",
+      "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=0.50, word_overlap=0.07, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.73, unsupported_nums=[]"
     },
     {
       "id": "q_en_02",
@@ -482,19 +486,19 @@
       "gold_chunk_ids": [
         "doc_en_02_p03_c01"
       ],
-      "generated_answer": "ISO/IEC 27001 Information Security Management Standard Requirements Overview Annex A Control Structure: The 93 Controls across Four Themes [source: doc_en_02_p03_c01]",
+      "generated_answer": "The four control themes of ISO/IEC 27001 Annex A are Organizational (37 controls), People (8 controls), Physical (14 controls), and Technologic. There are 93 controls in total. [source: doc_en_02_p03_c01]",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_en_02_p03_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_02_p03_c01",
-      "top_score": 0.9989751577377319,
-      "latency_ms": 4869.42,
-      "evaluation": "partially_correct",
-      "correctness_score": 1,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 3844.06,
+      "evaluation": "fully_correct",
+      "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=0.20, word_overlap=0.40, unsupported_nums=[]"
+      "eval_notes": "number_match=0.80, word_overlap=0.70, unsupported_nums=[]"
     },
     {
       "id": "q_en_03",
@@ -505,19 +509,19 @@
       "gold_chunk_ids": [
         "doc_en_03_p02_c01"
       ],
-      "generated_answer": "WHO Global Air Quality Guidelines: Particulate Matter and Ozone Health Assessment Quantitative Air Quality Guideline Thresholds for Particulate Matter The recommended annual mean guideline level for fine particulate matter PM 2.5 is established at 5 micrograms per cubic mete The 24-hour mean guideline level for PM 2.5 is set at 15 μg/m 3, not to be exceeded more than 3 to 4 days per calendar year. For coarse particles (PM 10), the recommended annual guideline concentration is 15 μg/m 3 and the 24-hour threshold is 45 μg/m Nitrogen dioxide (NO 2) guidelines stipulate an annual mean concentration of 10 μg/m 3 and a 24-hour concentration limit of 25 μ [source: doc_en_03_p02_c01]",
+      "generated_answer": "The WHO recommended annual mean guideline concentration for PM2.5 is 5 μg/m³ and for NO2 is 10 μg/m³. [source: [source: doc_en_03_p02_c01]",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_en_03_p02_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_03_p02_c01",
-      "top_score": 0.996425211429596,
-      "latency_ms": 6185.55,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 48372.16,
       "evaluation": "fully_correct",
       "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=1.00, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.50, unsupported_nums=[]"
     },
     {
       "id": "q_en_04",
@@ -536,8 +540,8 @@
         "doc_en_04_p01_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_04_p01_c01",
-      "top_score": 0.9975482821464539,
-      "latency_ms": 5522.28,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 15464.03,
       "evaluation": "incorrect",
       "correctness_score": 0,
       "unsupported": false,
@@ -552,19 +556,19 @@
       "gold_chunk_ids": [
         "doc_en_05_p02_c01"
       ],
-      "generated_answer": "World Bank World Development Report: Data for Better Lives Chapter 2: Value Capture Disparities between Global North and South Lower-middle-income countries currently capture less than 15% of the total economic value derived from their domestic data flo Global platform monopolies based in high-income economies capture dominant shares of digital advertising and cloud service re Developing countries face severe infrastructure deficits, with average broadband penetration remaining under 35% across rural National statistical offices require modernization and sustainable financing to produce high-frequency socioeconomic metrics. [source: doc_en_05_p02_c01]",
+      "generated_answer": "Lower-middle-income countries capture less than 15% of the total economic value derived from their domestic data. [source: doc_en_05_p02_c01]",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_en_05_p02_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_05_p02_c01",
-      "top_score": 0.9995713829994202,
-      "latency_ms": 6186.42,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 24747.31,
       "evaluation": "fully_correct",
       "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=0.94, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.88, unsupported_nums=[]"
     },
     {
       "id": "q_en_06",
@@ -576,19 +580,20 @@
         "doc_en_06_p01_c01",
         "doc_en_06_p03_c01"
       ],
-      "generated_answer": "OSHA General Industry Safety and Health Regulations Manual (OSHA 2254) Subpart D: Walking-Working Surfaces and Fall Protection Regulations Employers must ensure that all walking-working surfaces are inspected, maintained free of hazards, and support designed load Standard guardrail systems are mandatory for any open-sided floor, platform, or runway elevated 4 feet (1.2 meters) or more ab Guardrails must consist of a top rail at 42 inches nominal height, a midrail at 21 inches, and a 4-inch minimum toe-board. Toe-boards are required whenever workers can pass beneath elevated surfaces to prevent falling tool and material injuries. [source: doc_en_06_p01_c01]",
+      "generated_answer": "Guardrails are required for walking-working surfaces elevated **4 feet (1.2 meters) or more** above a lower level [source: doc_en_06_p01_c01].\n\nA Safety Data Sheet (SDS) must contain **16 sections**, aligned with the Globally Harmonized System (GHS) [source: doc_en_06_p03_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
-        "doc_en_06_p01_c01"
+        "doc_en_06_p01_c01",
+        "doc_en_06_p03_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_06_p01_c01",
-      "top_score": 0.979564368724823,
-      "latency_ms": 6302.6,
-      "evaluation": "partially_correct",
-      "correctness_score": 1,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 7668.74,
+      "evaluation": "fully_correct",
+      "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=0.67, word_overlap=0.53, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.42, unsupported_nums=[]"
     },
     {
       "id": "q_en_07",
@@ -599,19 +604,19 @@
       "gold_chunk_ids": [
         "doc_en_07_p02_c01"
       ],
-      "generated_answer": "UNEP Global Environmental Outlook and Sustainability Assessment Framework Chapter 2: Energy Transitions, Material Decoupling, and Circularity Renewable energy generation has expanded rapidly, reaching 28% of total global electricity generation in recent benchmark yea Despite clean energy growth, global material consumption reached 100 billion metric tons annually, with circularity at only 8.6% Decoupling economic growth from natural resource extraction requires mandatory circular design and extended producer respo Subsidies for fossil fuels, totaling hundreds of billions of dollars annually, must be redirected to clean technology infrastructure. [source: doc_en_07_p02_c01]",
+      "generated_answer": "Renewable energy accounts for **28%** of total global electricity generation [source: doc_en_07_p02_c01]; the global circularity metric is **8.6%** [source: doc_en_07_p02_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_en_07_p02_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_07_p02_c01",
-      "top_score": 0.9943959712982178,
-      "latency_ms": 5859.15,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 6218.58,
       "evaluation": "fully_correct",
       "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=0.82, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.64, unsupported_nums=[]"
     },
     {
       "id": "q_en_08",
@@ -629,8 +634,8 @@
         "doc_en_08_p02_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_08_p02_c01",
-      "top_score": 0.9695256948471069,
-      "latency_ms": 4689.7,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 106663.53,
       "evaluation": "partially_correct",
       "correctness_score": 1,
       "unsupported": false,
@@ -646,19 +651,20 @@
         "doc_en_09_p02_c01",
         "doc_en_09_p03_c01"
       ],
-      "generated_answer": "European Union General Data Protection Regulation (GDPR) Compliance Guidelines Article 33: Mandatory Notification of Personal Data Breaches Controllers must notify the competent supervisory authority of personal data breaches without undue delay and within 72 hours If notification is not made within 72 hours, it must be accompanied by a written explanation providing legitimate reasons for the d When a breach is likely to result in high risk to individual rights and freedoms, the controller must also notify the affected data su The breach notification must describe the nature of the breach, affected categories of data, and recommended mitigation action [source: doc_en_09_p02_c01]",
+      "generated_answer": "يجب على المراقب إخطار السلطة الإشرافية المختصة بانتهاك البيانات الشخصية دون تأخير غير مبرر وفي غضون 72 ساعة من اكتشافه [المصدر: doc_en_09_p02_c01]. بموجب المادة 83، تصل الغرامات الإدارية إلى 20 مليون يورو أو 4% من إجمالي حجم الأعمال السنوي العالمي للانتهاكات الأساسية [المصدر: doc_en_09_p03_c01]؛ أما الانتهاكات الأقل خطورة فيما يتعلق بالسجلات التقنية والتزامات المراقب، فتصل إلى 10 ملايين يورو أو 2% من حجم الأعمال العالمي [المصدر: doc_en_09_p03_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
-        "doc_en_09_p02_c01"
+        "doc_en_09_p02_c01",
+        "doc_en_09_p03_c01"
       ],
-      "top_retrieved_chunk_id": "doc_en_09_p02_c01",
-      "top_score": 0.9854646325111389,
-      "latency_ms": 4857.45,
+      "top_retrieved_chunk_id": "doc_en_09_p03_c01",
+      "top_score": 0.03252247488101534,
+      "latency_ms": 46469.15,
       "evaluation": "partially_correct",
       "correctness_score": 1,
       "unsupported": false,
-      "eval_notes": "number_match=0.33, word_overlap=0.50, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.00, unsupported_nums=[]"
     },
     {
       "id": "q_en_10",
@@ -669,19 +675,19 @@
       "gold_chunk_ids": [
         "doc_en_10_p01_c01"
       ],
-      "generated_answer": "International Energy Agency (IEA) Global Energy Efficiency and Transition Report Chapter 1: Global Energy Intensity Trends and Net Zero Milestones Global primary energy intensity improved by 2% in the preceding evaluation year, falling short of global climate targets. To remain on track for the Net Zero Emissions by 2050 scenario, annual energy intensity improvement must accelerate to 4% p Energy efficiency represents the first fuel of the clean transition, delivering immediate emissions reductions and energy security Policy adoption of mandatory building energy codes and appliance minimum performance standards covers 45% of global build [source: doc_en_10_p01_c01]",
+      "generated_answer": "According to the IEA Global Energy Efficiency and Transition Report, to remain on track for the Net Zero Emissions by 2050 scenario, annual energy intensity improvement must accelerate to **4%** [source: doc_en_10_p01_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_en_10_p01_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_10_p01_c01",
-      "top_score": 0.9952754974365234,
-      "latency_ms": 5399.94,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 7374.4,
       "evaluation": "fully_correct",
       "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=1.00, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.92, unsupported_nums=[]"
     },
     {
       "id": "q_en_11",
@@ -693,19 +699,20 @@
         "doc_en_11_p01_c01",
         "doc_en_11_p02_c01"
       ],
-      "generated_answer": "CISA Cybersecurity Incident and Vulnerability Response Playbook Phase 1 & 2: Preparation, Incident Detection, and Initial Analysis The CISA playbook outlines standardized operational procedures for responding to cybersecurity threats across institutional net The response lifecycle comprises five distinct phases: Preparation, Detection & Analysis, Containment, Eradication & Recovery Upon detecting anomalous activity, the incident response team must validate the threat and assign an initial severity rating withi High-severity incidents affecting critical operations or domain controllers must be escalated to executive leadership immediately [source: doc_en_11_p01_c01]",
+      "generated_answer": "The CISA playbook defines the incident response lifecycle as five phases: **Preparation, Detection & Analysis, Containment, Eradication & Recovery** [source: doc_en_11_p01_c01]. Forensic images must be verified using the **SHA‑256** hashing algorithm [source: doc_en_11_p02_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
-        "doc_en_11_p01_c01"
+        "doc_en_11_p01_c01",
+        "doc_en_11_p02_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_11_p01_c01",
-      "top_score": 0.9961819648742676,
-      "latency_ms": 6186.89,
-      "evaluation": "partially_correct",
-      "correctness_score": 1,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 20068.76,
+      "evaluation": "fully_correct",
+      "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=0.00, word_overlap=0.61, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.83, unsupported_nums=[]"
     },
     {
       "id": "q_en_12",
@@ -717,19 +724,20 @@
         "doc_en_12_p01_c01",
         "doc_en_12_p02_c01"
       ],
-      "generated_answer": "W 3 C Web Content Accessibility Guidelines (WCAG 2.1) Implementation Manual Principle 3: Understandable and Contrast Ratio Requirements Success Criterion 1.4.3 (Contrast Minimum) requires a visual contrast ratio of at least 4.5:1 for standard text and images of text. For large-scale text (defined as 18 point or 14 point bold), the minimum required contrast ratio is 3:1 at Level AA conformance. Criterion 3.1.1 mandates identifying the default human language of each web page programmatically using the HTML lang attrib Form fields require clear text labels or instructions under Criterion 3.3.2, with descriptive error identification upon failed validatio [source: doc_en_12_p02_c01]",
+      "generated_answer": "The four POUR principles of WCAG 2.1 are Perceivable, Operable, Understandable, and Robust [source: doc_en_12_p01_c01]. Under Success Criterion 1.4.3, the minimum required visual contrast ratio for standard text is at least 4.5:1 [source: doc_en_12_p02_c01].",
       "refused": false,
       "refusal_reason": null,
       "citations": [
+        "doc_en_12_p01_c01",
         "doc_en_12_p02_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_12_p02_c01",
-      "top_score": 0.9964904189109802,
-      "latency_ms": 5360.04,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 10137.0,
       "evaluation": "fully_correct",
       "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=0.69, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.88, unsupported_nums=[]"
     },
     {
       "id": "q_en_13",
@@ -740,19 +748,19 @@
       "gold_chunk_ids": [
         "doc_en_03_p03_c01"
       ],
-      "generated_answer": "WHO Global Air Quality Guidelines: Particulate Matter and Ozone Health Assessment Ozone Guideline Levels and Recommended Public Health Interventions The peak season 8-hour daily maximum ozone (O 3) concentration guideline is set at 60 μg/m 3 to prevent respiratory hospital ad Exposure above guideline thresholds is quantitatively correlated with increased risks of stroke, ischemic heart disease, and lung WHO urges member states to enact clean energy transitions, phase out coal combustion, and expand zero-emission public tran Targeted air quality alert systems should advise vulnerable populations, including asthmatic children, during high pollution episo [source: doc_en_03_p03_c01]",
+      "generated_answer": "The peak season 8‑hour daily maximum ozone (O₃) guideline level set by the WHO is 60 μg/m³. [source: doc_en_03_p03_c01]",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_en_03_p03_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_03_p03_c01",
-      "top_score": 0.9972264170646667,
-      "latency_ms": 5740.19,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 2436.12,
       "evaluation": "fully_correct",
       "correctness_score": 2,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=1.00, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.88, unsupported_nums=[]"
     },
     {
       "id": "q_en_14",
@@ -763,19 +771,19 @@
       "gold_chunk_ids": [
         "doc_en_11_p03_c01"
       ],
-      "generated_answer": "CISA Cybersecurity Incident and Vulnerability Response Playbook Phase 4 & 5: Eradication, Recovery, and Post-Incident Lessons Learned Eradication involves purging adversary footholds, resetting compromised enterprise credentials, and patching exploited vulnerab Restored systems must be connected to isolated monitoring segments for at least 72 hours of telemetry review before full produ The incident response team must publish a final Root Cause Analysis (RCA) and Lessons Learned report within 14 days of clos Recommendations must update preventative defensive controls and firewall ingress rules to prevent recurrent exploitation. [source: doc_en_11_p03_c01]",
+      "generated_answer": "At least 72 hours. [source: doc_en_11_p03_c01]",
       "refused": false,
       "refusal_reason": null,
       "citations": [
         "doc_en_11_p03_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_11_p03_c01",
-      "top_score": 0.975597620010376,
-      "latency_ms": 4693.65,
-      "evaluation": "fully_correct",
-      "correctness_score": 2,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 3241.05,
+      "evaluation": "partially_correct",
+      "correctness_score": 1,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=0.87, unsupported_nums=[]"
+      "eval_notes": "number_match=1.00, word_overlap=0.13, unsupported_nums=[]"
     },
     {
       "id": "q_en_15",
@@ -793,8 +801,8 @@
         "doc_en_05_p01_c01"
       ],
       "top_retrieved_chunk_id": "doc_en_05_p01_c01",
-      "top_score": 0.9993245601654053,
-      "latency_ms": 5919.29,
+      "top_score": 0.03278688524590164,
+      "latency_ms": 10328.66,
       "evaluation": "fully_correct",
       "correctness_score": 2,
       "unsupported": false,
@@ -809,19 +817,17 @@
       "gold_chunk_ids": [
         "doc_ar_06_p01_c01"
       ],
-      "generated_answer": "Generation request timed out. [source: doc_ar_06_p01_c01]",
-      "refused": false,
-      "refusal_reason": null,
-      "citations": [
-        "doc_ar_06_p01_c01"
-      ],
-      "top_retrieved_chunk_id": "doc_ar_06_p01_c01",
-      "top_score": 0.3319648206233978,
-      "latency_ms": 4648.15,
-      "evaluation": "partially_correct",
-      "correctness_score": 1,
+      "generated_answer": "The answer is not available in the provided documents.",
+      "refused": true,
+      "refusal_reason": "llm_evidence_insufficient",
+      "citations": [],
+      "top_retrieved_chunk_id": "doc_en_08_p02_c01",
+      "top_score": 0.03252247488101534,
+      "latency_ms": 3719.29,
+      "evaluation": "incorrect_refusal",
+      "correctness_score": 0,
       "unsupported": false,
-      "eval_notes": "number_match=1.00, word_overlap=0.00, unsupported_nums=[]"
+      "eval_notes": "Answerable question was refused by system."
     },
     {
       "id": "q_en_un_01",
@@ -832,10 +838,10 @@
       "gold_chunk_ids": [],
       "generated_answer": "The answer is not available in the provided documents.",
       "refused": true,
-      "refusal_reason": "low_retrieval_confidence (top_score=0.0040 < 0.1)",
+      "refusal_reason": "low_retrieval_confidence (dense=0.3718 < 0.5, bm25=8.18)",
       "citations": [],
-      "top_retrieved_chunk_id": "doc_en_09_p03_c01",
-      "top_score": 0.004028703086078167,
+      "top_retrieved_chunk_id": "doc_en_03_p02_c01",
+      "top_score": 0.03200204813108039,
       "latency_ms": 0.0,
       "evaluation": "correct_refusal"
     },
@@ -848,10 +854,10 @@
       "gold_chunk_ids": [],
       "generated_answer": "The answer is not available in the provided documents.",
       "refused": true,
-      "refusal_reason": "low_retrieval_confidence (top_score=0.0011 < 0.1)",
+      "refusal_reason": "low_retrieval_confidence (dense=0.4113 < 0.5, bm25=10.20)",
       "citations": [],
       "top_retrieved_chunk_id": "doc_en_10_p01_c01",
-      "top_score": 0.001124506234191358,
+      "top_score": 0.03252247488101534,
       "latency_ms": 0.0,
       "evaluation": "correct_refusal"
     },
@@ -864,10 +870,10 @@
       "gold_chunk_ids": [],
       "generated_answer": "The answer is not available in the provided documents.",
       "refused": true,
-      "refusal_reason": "low_retrieval_confidence (top_score=0.0130 < 0.1)",
+      "refusal_reason": "low_retrieval_confidence (dense=0.3977 < 0.5, bm25=7.81)",
       "citations": [],
-      "top_retrieved_chunk_id": "doc_en_10_p01_c01",
-      "top_score": 0.013016697950661182,
+      "top_retrieved_chunk_id": "doc_en_03_p03_c01",
+      "top_score": 0.03278688524590164,
       "latency_ms": 0.0,
       "evaluation": "correct_refusal"
     },
@@ -880,10 +886,10 @@
       "gold_chunk_ids": [],
       "generated_answer": "The answer is not available in the provided documents.",
       "refused": true,
-      "refusal_reason": "low_retrieval_confidence (top_score=0.0011 < 0.1)",
+      "refusal_reason": "low_retrieval_confidence (dense=0.4589 < 0.5, bm25=6.89)",
       "citations": [],
       "top_retrieved_chunk_id": "doc_en_09_p03_c01",
-      "top_score": 0.0011294090654700994,
+      "top_score": 0.032266458495966696,
       "latency_ms": 0.0,
       "evaluation": "correct_refusal"
     }

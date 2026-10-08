@@ -1,8 +1,9 @@
 {
-  "timestamp": "2026-10-07T15:23:38Z",
+  "timestamp": "2026-10-08T09:31:37Z",
   "dataset": "evaluation/gold.jsonl",
   "total_answerable_evaluated": 32,
   "baseline": {
+    "name": "Dense Baseline (BGE-M3 + FAISS)",
     "hit@1": 1.0,
     "hit@3": 1.0,
     "hit@5": 1.0,
@@ -72,8 +73,8 @@
         "language": "ar",
         "question": "ما هي مستويات تصنيف البيانات الأربعة في الدليل الإرشادي الوطني وما هي خوارزمية التشفير المعتمدة للبيانات السرية؟",
         "gold_ids": [
-          "doc_ar_04_p01_c01",
-          "doc_ar_04_p02_c01"
+          "doc_ar_04_p02_c01",
+          "doc_ar_04_p01_c01"
         ],
         "retrieved_ids": [
           "doc_ar_04_p01_c01",
@@ -92,8 +93,8 @@
         "language": "ar",
         "question": "ما هو الحد السنوي المستهدف لتركيز الجسيمات العالقة PM2.5 في تقرير جودة الهواء وما هي مستهدفات الحافلات الكهربائية بحلول 2030؟",
         "gold_ids": [
-          "doc_ar_05_p01_c01",
-          "doc_ar_05_p02_c01"
+          "doc_ar_05_p02_c01",
+          "doc_ar_05_p01_c01"
         ],
         "retrieved_ids": [
           "doc_ar_05_p02_c01",
@@ -171,8 +172,8 @@
         "language": "ar",
         "question": "ما هي الضوابط المتعلقة بإدخال البيانات المصنفة في أدوات الذكاء الاصطناعي التوليدي العامة وما هي شروط الإفصاح عن المحتوى؟",
         "gold_ids": [
-          "doc_ar_09_p01_c01",
-          "doc_ar_09_p02_c01"
+          "doc_ar_09_p02_c01",
+          "doc_ar_09_p01_c01"
         ],
         "retrieved_ids": [
           "doc_ar_09_p01_c01",
@@ -191,8 +192,8 @@
         "language": "ar",
         "question": "كم تبلغ نسبة مساهمة محطات التحلية في الإمداد المائي البلدي وما هو مستهدف خفض استهلاك الفرد اليومي من المياه بحلول 2030؟",
         "gold_ids": [
-          "doc_ar_10_p01_c01",
-          "doc_ar_10_p02_c01"
+          "doc_ar_10_p02_c01",
+          "doc_ar_10_p01_c01"
         ],
         "retrieved_ids": [
           "doc_ar_10_p01_c01",
@@ -211,8 +212,8 @@
         "language": "ar",
         "question": "ما هو الحد الأقصى لزمن احتواء الحوادث السيبرانية من المستوى الحرج P1 وما هي الخوارزمية المستخدمة للتحقق من سلامة الأدلة الجنائية؟",
         "gold_ids": [
-          "doc_ar_11_p02_c01",
-          "doc_ar_11_p01_c01"
+          "doc_ar_11_p01_c01",
+          "doc_ar_11_p02_c01"
         ],
         "retrieved_ids": [
           "doc_ar_11_p01_c01",
@@ -383,8 +384,8 @@
         "language": "en",
         "question": "What are the core values-based principles for trustworthy AI outlined in the OECD AI Recommendation?",
         "gold_ids": [
-          "doc_en_04_p01_c01",
-          "doc_en_04_p02_c01"
+          "doc_en_04_p02_c01",
+          "doc_en_04_p01_c01"
         ],
         "retrieved_ids": [
           "doc_en_04_p01_c01",
@@ -422,8 +423,8 @@
         "language": "en",
         "question": "At what elevation are guardrails required for walking-working surfaces under OSHA regulations, and how many sections must a Safety Data Sheet (SDS) contain?",
         "gold_ids": [
-          "doc_en_06_p01_c01",
-          "doc_en_06_p03_c01"
+          "doc_en_06_p03_c01",
+          "doc_en_06_p01_c01"
         ],
         "retrieved_ids": [
           "doc_en_06_p01_c01",
@@ -633,12 +634,13 @@
     ]
   },
   "improved": {
-    "hit@1": 1.0,
-    "hit@3": 1.0,
-    "hit@5": 1.0,
-    "mrr": 1.0,
+    "name": "Hybrid Search (Dense BGE-M3 + BM25 RRF)",
+    "hit@1": 0.9688,
+    "hit@3": 0.9688,
+    "hit@5": 0.9688,
+    "mrr": 0.9688,
     "ar_mrr": 1.0,
-    "en_mrr": 1.0,
+    "en_mrr": 0.9375,
     "per_query": [
       {
         "id": "q_ar_01",
@@ -651,7 +653,7 @@
           "doc_ar_01_p02_c01",
           "doc_ar_01_p03_c01",
           "doc_ar_01_p01_c01",
-          "doc_ar_04_p03_c01",
+          "doc_ar_06_p02_c01",
           "doc_ar_02_p01_c01"
         ],
         "reciprocal_rank": 1.0,
@@ -668,10 +670,10 @@
         ],
         "retrieved_ids": [
           "doc_ar_02_p01_c01",
-          "doc_ar_02_p02_c01",
           "doc_ar_02_p03_c01",
-          "doc_en_01_p02_c01",
-          "doc_ar_11_p01_c01"
+          "doc_ar_02_p02_c01",
+          "doc_ar_11_p01_c01",
+          "doc_ar_11_p02_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -689,8 +691,8 @@
           "doc_ar_03_p01_c01",
           "doc_ar_03_p02_c01",
           "doc_ar_03_p03_c01",
-          "doc_en_04_p02_c01",
-          "doc_ar_09_p01_c01"
+          "doc_ar_09_p01_c01",
+          "doc_ar_09_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -702,15 +704,15 @@
         "language": "ar",
         "question": "ما هي مستويات تصنيف البيانات الأربعة في الدليل الإرشادي الوطني وما هي خوارزمية التشفير المعتمدة للبيانات السرية؟",
         "gold_ids": [
-          "doc_ar_04_p01_c01",
-          "doc_ar_04_p02_c01"
+          "doc_ar_04_p02_c01",
+          "doc_ar_04_p01_c01"
         ],
         "retrieved_ids": [
-          "doc_ar_04_p01_c01",
           "doc_ar_04_p02_c01",
+          "doc_ar_04_p01_c01",
           "doc_ar_01_p02_c01",
           "doc_ar_04_p03_c01",
-          "doc_en_01_p03_c01"
+          "doc_ar_06_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -722,15 +724,15 @@
         "language": "ar",
         "question": "ما هو الحد السنوي المستهدف لتركيز الجسيمات العالقة PM2.5 في تقرير جودة الهواء وما هي مستهدفات الحافلات الكهربائية بحلول 2030؟",
         "gold_ids": [
-          "doc_ar_05_p01_c01",
-          "doc_ar_05_p02_c01"
+          "doc_ar_05_p02_c01",
+          "doc_ar_05_p01_c01"
         ],
         "retrieved_ids": [
           "doc_ar_05_p01_c01",
           "doc_ar_05_p02_c01",
-          "doc_en_03_p02_c01",
-          "doc_en_03_p01_c01",
-          "doc_en_03_p03_c01"
+          "doc_ar_05_p03_c01",
+          "doc_ar_10_p02_c01",
+          "doc_ar_12_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -768,9 +770,9 @@
         "retrieved_ids": [
           "doc_ar_07_p01_c01",
           "doc_ar_07_p02_c01",
-          "doc_en_09_p02_c01",
-          "doc_en_03_p02_c01",
-          "doc_ar_05_p01_c01"
+          "doc_ar_07_p03_c01",
+          "doc_ar_05_p01_c01",
+          "doc_en_03_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -786,10 +788,10 @@
         ],
         "retrieved_ids": [
           "doc_ar_08_p02_c01",
-          "doc_en_09_p02_c01",
           "doc_ar_08_p03_c01",
+          "doc_ar_01_p03_c01",
           "doc_ar_08_p01_c01",
-          "doc_en_01_p02_c01"
+          "doc_ar_06_p02_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -801,15 +803,15 @@
         "language": "ar",
         "question": "ما هي الضوابط المتعلقة بإدخال البيانات المصنفة في أدوات الذكاء الاصطناعي التوليدي العامة وما هي شروط الإفصاح عن المحتوى؟",
         "gold_ids": [
-          "doc_ar_09_p01_c01",
-          "doc_ar_09_p02_c01"
+          "doc_ar_09_p02_c01",
+          "doc_ar_09_p01_c01"
         ],
         "retrieved_ids": [
           "doc_ar_09_p01_c01",
           "doc_ar_09_p02_c01",
-          "doc_ar_03_p01_c01",
+          "doc_ar_03_p02_c01",
           "doc_ar_09_p03_c01",
-          "doc_ar_03_p02_c01"
+          "doc_ar_03_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -821,15 +823,15 @@
         "language": "ar",
         "question": "كم تبلغ نسبة مساهمة محطات التحلية في الإمداد المائي البلدي وما هو مستهدف خفض استهلاك الفرد اليومي من المياه بحلول 2030؟",
         "gold_ids": [
-          "doc_ar_10_p01_c01",
-          "doc_ar_10_p02_c01"
+          "doc_ar_10_p02_c01",
+          "doc_ar_10_p01_c01"
         ],
         "retrieved_ids": [
           "doc_ar_10_p01_c01",
           "doc_ar_10_p02_c01",
-          "doc_en_07_p03_c01",
-          "doc_ar_10_p03_c01",
-          "doc_ar_05_p03_c01"
+          "doc_ar_05_p02_c01",
+          "doc_ar_05_p01_c01",
+          "doc_ar_10_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -841,15 +843,15 @@
         "language": "ar",
         "question": "ما هو الحد الأقصى لزمن احتواء الحوادث السيبرانية من المستوى الحرج P1 وما هي الخوارزمية المستخدمة للتحقق من سلامة الأدلة الجنائية؟",
         "gold_ids": [
-          "doc_ar_11_p02_c01",
-          "doc_ar_11_p01_c01"
+          "doc_ar_11_p01_c01",
+          "doc_ar_11_p02_c01"
         ],
         "retrieved_ids": [
           "doc_ar_11_p01_c01",
           "doc_ar_11_p02_c01",
           "doc_ar_11_p03_c01",
-          "doc_ar_02_p01_c01",
-          "doc_ar_02_p03_c01"
+          "doc_ar_02_p03_c01",
+          "doc_ar_02_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -868,7 +870,7 @@
           "doc_ar_12_p03_c01",
           "doc_ar_12_p02_c01",
           "doc_ar_01_p03_c01",
-          "doc_en_05_p02_c01"
+          "doc_ar_04_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -884,9 +886,9 @@
         ],
         "retrieved_ids": [
           "doc_ar_07_p03_c01",
-          "doc_ar_07_p02_c01",
           "doc_ar_07_p01_c01",
-          "doc_ar_02_p03_c01",
+          "doc_ar_07_p02_c01",
+          "doc_ar_06_p02_c01",
           "doc_ar_11_p03_c01"
         ],
         "reciprocal_rank": 1.0,
@@ -903,10 +905,10 @@
         ],
         "retrieved_ids": [
           "doc_ar_08_p03_c01",
-          "doc_en_09_p03_c01",
           "doc_ar_08_p01_c01",
           "doc_ar_08_p02_c01",
-          "doc_ar_01_p03_c01"
+          "doc_ar_01_p03_c01",
+          "doc_ar_04_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -925,7 +927,7 @@
           "doc_ar_10_p01_c01",
           "doc_ar_10_p02_c01",
           "doc_ar_07_p03_c01",
-          "doc_ar_07_p02_c01"
+          "doc_ar_02_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -942,9 +944,9 @@
         "retrieved_ids": [
           "doc_en_01_p01_c01",
           "doc_ar_11_p03_c01",
-          "doc_ar_01_p02_c01",
-          "doc_ar_06_p02_c01",
-          "doc_en_01_p02_c01"
+          "doc_en_01_p02_c01",
+          "doc_ar_02_p02_c01",
+          "doc_ar_01_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -962,8 +964,8 @@
           "doc_en_01_p01_c01",
           "doc_en_01_p02_c01",
           "doc_en_01_p03_c01",
-          "doc_ar_11_p03_c01",
-          "doc_en_11_p03_c01"
+          "doc_en_11_p03_c01",
+          "doc_en_04_p02_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -982,7 +984,7 @@
           "doc_en_02_p01_c01",
           "doc_en_02_p02_c01",
           "doc_en_01_p01_c01",
-          "doc_en_12_p03_c01"
+          "doc_en_12_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -999,8 +1001,8 @@
         "retrieved_ids": [
           "doc_en_03_p02_c01",
           "doc_en_03_p03_c01",
-          "doc_ar_05_p01_c01",
           "doc_en_03_p01_c01",
+          "doc_en_07_p03_c01",
           "doc_en_10_p01_c01"
         ],
         "reciprocal_rank": 1.0,
@@ -1013,15 +1015,15 @@
         "language": "en",
         "question": "What are the core values-based principles for trustworthy AI outlined in the OECD AI Recommendation?",
         "gold_ids": [
-          "doc_en_04_p01_c01",
-          "doc_en_04_p02_c01"
+          "doc_en_04_p02_c01",
+          "doc_en_04_p01_c01"
         ],
         "retrieved_ids": [
           "doc_en_04_p01_c01",
           "doc_en_04_p02_c01",
           "doc_en_04_p03_c01",
-          "doc_ar_03_p02_c01",
-          "doc_ar_03_p01_c01"
+          "doc_en_08_p03_c01",
+          "doc_en_12_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1039,8 +1041,8 @@
           "doc_en_05_p02_c01",
           "doc_en_05_p01_c01",
           "doc_en_05_p03_c01",
-          "doc_en_04_p01_c01",
-          "doc_en_07_p02_c01"
+          "doc_en_07_p02_c01",
+          "doc_en_10_p02_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1052,15 +1054,15 @@
         "language": "en",
         "question": "At what elevation are guardrails required for walking-working surfaces under OSHA regulations, and how many sections must a Safety Data Sheet (SDS) contain?",
         "gold_ids": [
-          "doc_en_06_p01_c01",
-          "doc_en_06_p03_c01"
+          "doc_en_06_p03_c01",
+          "doc_en_06_p01_c01"
         ],
         "retrieved_ids": [
           "doc_en_06_p01_c01",
           "doc_en_06_p03_c01",
-          "doc_ar_07_p02_c01",
-          "doc_en_02_p03_c01",
-          "doc_en_06_p02_c01"
+          "doc_en_06_p02_c01",
+          "doc_en_01_p03_c01",
+          "doc_en_02_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1076,10 +1078,10 @@
         ],
         "retrieved_ids": [
           "doc_en_07_p02_c01",
-          "doc_en_07_p03_c01",
           "doc_en_07_p01_c01",
-          "doc_en_10_p02_c01",
-          "doc_en_10_p01_c01"
+          "doc_en_07_p03_c01",
+          "doc_en_10_p01_c01",
+          "doc_en_03_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1095,10 +1097,10 @@
         ],
         "retrieved_ids": [
           "doc_en_08_p02_c01",
+          "doc_en_08_p03_c01",
           "doc_en_01_p03_c01",
-          "doc_en_11_p02_c01",
-          "doc_ar_04_p02_c01",
-          "doc_en_08_p03_c01"
+          "doc_en_08_p01_c01",
+          "doc_en_02_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1116,9 +1118,9 @@
         "retrieved_ids": [
           "doc_en_09_p02_c01",
           "doc_en_09_p03_c01",
-          "doc_ar_08_p02_c01",
           "doc_en_09_p01_c01",
-          "doc_ar_01_p03_c01"
+          "doc_en_01_p01_c01",
+          "doc_en_01_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1136,7 +1138,7 @@
           "doc_en_10_p01_c01",
           "doc_en_10_p02_c01",
           "doc_en_10_p03_c01",
-          "doc_en_07_p02_c01",
+          "doc_en_07_p01_c01",
           "doc_en_03_p03_c01"
         ],
         "reciprocal_rank": 1.0,
@@ -1156,8 +1158,8 @@
           "doc_en_11_p01_c01",
           "doc_en_11_p02_c01",
           "doc_en_11_p03_c01",
-          "doc_ar_11_p02_c01",
-          "doc_ar_11_p03_c01"
+          "doc_en_01_p03_c01",
+          "doc_en_01_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1176,8 +1178,8 @@
           "doc_en_12_p02_c01",
           "doc_en_12_p01_c01",
           "doc_en_12_p03_c01",
-          "doc_ar_03_p02_c01",
-          "doc_ar_03_p01_c01"
+          "doc_en_02_p03_c01",
+          "doc_en_04_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1196,7 +1198,7 @@
           "doc_en_03_p02_c01",
           "doc_en_03_p01_c01",
           "doc_en_10_p01_c01",
-          "doc_en_10_p03_c01"
+          "doc_en_06_p02_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1214,8 +1216,8 @@
           "doc_en_11_p03_c01",
           "doc_en_11_p01_c01",
           "doc_en_11_p02_c01",
-          "doc_ar_11_p03_c01",
-          "doc_ar_02_p03_c01"
+          "doc_en_01_p03_c01",
+          "doc_en_01_p01_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1231,10 +1233,10 @@
         ],
         "retrieved_ids": [
           "doc_en_05_p01_c01",
-          "doc_en_05_p03_c01",
           "doc_en_05_p02_c01",
-          "doc_en_04_p02_c01",
-          "doc_ar_04_p01_c01"
+          "doc_en_05_p03_c01",
+          "doc_en_08_p01_c01",
+          "doc_en_04_p03_c01"
         ],
         "reciprocal_rank": 1.0,
         "hit@1": 1.0,
@@ -1249,16 +1251,16 @@
           "doc_ar_06_p01_c01"
         ],
         "retrieved_ids": [
-          "doc_ar_06_p01_c01",
           "doc_en_08_p02_c01",
-          "doc_ar_06_p03_c01",
-          "doc_ar_06_p02_c01",
-          "doc_ar_12_p02_c01"
+          "doc_en_08_p03_c01",
+          "doc_en_08_p01_c01",
+          "doc_en_01_p03_c01",
+          "doc_en_04_p03_c01"
         ],
-        "reciprocal_rank": 1.0,
-        "hit@1": 1.0,
-        "hit@3": 1.0,
-        "hit@5": 1.0
+        "reciprocal_rank": 0.0,
+        "hit@1": 0.0,
+        "hit@3": 0.0,
+        "hit@5": 0.0
       }
     ]
   }

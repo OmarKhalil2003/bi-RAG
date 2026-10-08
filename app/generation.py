@@ -21,7 +21,7 @@ import requests
 
 DEFAULT_MODEL = os.getenv("GENERATION_MODEL", "openrouter/free")
 OPENROUTER_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
-CONFIDENCE_THRESHOLD = float(os.getenv("SCORE_THRESHOLD", "0.10"))
+CONFIDENCE_THRESHOLD = float(os.getenv("SCORE_THRESHOLD", "0.50"))
 
 REFUSAL_MESSAGE_AR = "الإجابة غير متوفرة في المستندات المقدمة."
 REFUSAL_MESSAGE_EN = "The answer is not available in the provided documents."
@@ -171,16 +171,24 @@ class Generator:
         lang = detect_language(question)
 
         # 1. Retrieval confidence gate (Gate 1)
-        top_score = 0.0
+        top_dense = 0.0
+        top_bm25 = 0.0
         if retrieved_chunks:
-            top_score = retrieved_chunks[0].get("reranker_score", retrieved_chunks[0].get("score", 0.0))
+            top_dense = retrieved_chunks[0].get("dense_score", retrieved_chunks[0].get("score", 0.0))
+            top_bm25 = retrieved_chunks[0].get("bm25_score", 0.0)
 
-        if not retrieved_chunks or top_score < self.threshold:
+        # Reject if dense similarity is below threshold and sparse keyword match is low
+        is_low_confidence = (
+            not retrieved_chunks
+            or (top_dense < self.threshold and top_bm25 < 15.0)
+        )
+
+        if is_low_confidence:
             refusal_msg = REFUSAL_MESSAGE_AR if lang == "ar" else REFUSAL_MESSAGE_EN
             return {
                 "answer": refusal_msg,
                 "refused": True,
-                "refusal_reason": f"low_retrieval_confidence (top_score={top_score:.4f} < {self.threshold})",
+                "refusal_reason": f"low_retrieval_confidence (dense={top_dense:.4f} < {self.threshold}, bm25={top_bm25:.2f})",
                 "citations": [],
                 "sources": [],
                 "latency_ms": round((time.time() - start_time) * 1000, 2)
@@ -203,7 +211,7 @@ class Generator:
             or "Generation request timed out" in cleaned_answer
             or cleaned_answer.lower() == "safe"
         )
-        if is_api_failure and top_score >= 0.70 and retrieved_chunks:
+        if is_api_failure and top_dense >= 0.60 and retrieved_chunks:
             cleaned_answer = synthesize_extractive_fallback(question, retrieved_chunks[0])
 
         # 5. Check LLM refusal & citations

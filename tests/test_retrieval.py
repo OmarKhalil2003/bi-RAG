@@ -1,12 +1,12 @@
 """
-Unit Tests for Retrieval Pipelines (Baseline and Improved)
+Unit Tests for Retrieval Pipelines (Baseline and Hybrid Search)
 """
 
 import os
 import pytest
 from src.index import VectorStore
 from src.retrieve import BaselineRetriever
-from src.rerank import ImprovedRetriever
+from src.hybrid import HybridRetriever, BM25Store
 
 
 @pytest.fixture(scope="module")
@@ -17,8 +17,9 @@ def baseline_retriever():
 
 
 @pytest.fixture(scope="module")
-def improved_retriever(baseline_retriever):
-    return ImprovedRetriever(baseline_retriever)
+def hybrid_retriever(baseline_retriever):
+    bm25 = BM25Store("data/chunks.jsonl")
+    return HybridRetriever(baseline_retriever=baseline_retriever, bm25_store=bm25)
 
 
 def test_vector_store_loads():
@@ -38,8 +39,8 @@ def test_baseline_retrieval_returns_k_results(baseline_retriever):
         assert len(item["chunk_id"]) > 0
 
 
-def test_improved_retrieval_returns_k_results(improved_retriever):
-    results = improved_retriever.retrieve(
+def test_hybrid_retrieval_returns_k_results(hybrid_retriever):
+    results = hybrid_retriever.retrieve(
         "ما هي المبادئ الأخلاقية للذكاء الاصطناعي؟",
         candidate_k=10,
         top_k=3
@@ -47,8 +48,9 @@ def test_improved_retrieval_returns_k_results(improved_retriever):
     assert len(results) == 3
     for item in results:
         assert "chunk_id" in item
-        assert "reranker_score" in item
+        assert "rrf_score" in item
         assert "dense_score" in item
+        assert "bm25_score" in item
         assert item["chunk_id"].startswith("doc_ar_") or item["chunk_id"].startswith("doc_en_")
 
 

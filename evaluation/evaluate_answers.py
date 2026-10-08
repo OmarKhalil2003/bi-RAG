@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from src.retrieve import BaselineRetriever
-from src.rerank import ImprovedRetriever
+from src.hybrid import HybridRetriever, BM25Store
 from app.generation import Generator, is_refusal
 
 
@@ -102,9 +102,10 @@ def main():
     print(f"Loaded {len(questions)} gold questions.")
 
     # Initialize retrieval & generator
-    print("Initializing Improved Retriever...")
+    print("Initializing Enhanced Hybrid Retriever (Dense + BM25 RRF)...")
     baseline = BaselineRetriever()
-    improved = ImprovedRetriever(baseline_retriever=baseline)
+    bm25 = BM25Store()
+    hybrid = HybridRetriever(baseline_retriever=baseline, bm25_store=bm25)
     generator = Generator()
 
     eval_records = []
@@ -124,8 +125,8 @@ def main():
         gold_ans = item.get("gold_answer")
         gold_cids = item.get("supporting_chunk_ids", [])
 
-        # Retrieve top 5 using improved retriever (candidate_k=20)
-        retrieved_chunks = improved.retrieve(q_text, candidate_k=20, top_k=5)
+        # Retrieve top 5 using hybrid retriever (candidate_k=20)
+        retrieved_chunks = hybrid.retrieve(q_text, candidate_k=20, top_k=5)
         # Generate answer
         gen_result = generator.generate(q_text, retrieved_chunks)
 
@@ -145,7 +146,7 @@ def main():
             "refusal_reason": gen_result.get("refusal_reason"),
             "citations": citations,
             "top_retrieved_chunk_id": retrieved_chunks[0]["chunk_id"] if retrieved_chunks else None,
-            "top_score": retrieved_chunks[0].get("reranker_score", 0.0) if retrieved_chunks else 0.0,
+            "top_score": retrieved_chunks[0].get("rrf_score", retrieved_chunks[0].get("score", 0.0)) if retrieved_chunks else 0.0,
             "latency_ms": gen_result.get("latency_ms", 0.0)
         }
 

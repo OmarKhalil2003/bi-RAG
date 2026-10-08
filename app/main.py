@@ -50,7 +50,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Bilingual Document Q&A (RAG) API",
-    description="Arabic and English RAG System using BGE-M3, FAISS, BGE-Reranker-v2-m3, and LLM Generation with Passage Citations.",
+    description="Arabic and English RAG System using BGE-M3, FAISS, BM25 Hybrid Search, and LLM Generation with Passage Citations.",
     version="1.0.0",
     lifespan=lifespan
 )
@@ -78,7 +78,8 @@ async def health_check():
         total_vectors=total_vecs,
         models={
             "embedding": os.getenv("MODEL_NAME", "BAAI/bge-m3"),
-            "reranker": os.getenv("RERANKER_NAME", "BAAI/bge-reranker-v2-m3"),
+            "sparse": "BM25Okapi",
+            "vector_index": "FAISS IndexFlatIP",
             "generator": os.getenv("GENERATION_MODEL", "openrouter/free")
         }
     )
