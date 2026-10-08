@@ -3,7 +3,7 @@ Run Full Evaluation Script
 Bilingual Document Q&A (RAG) System
 
 Executes:
-1. Retrieval evaluation (Baseline vs Reranked)
+1. Retrieval evaluation (Baseline vs Hybrid)
 2. Generation quality evaluation (Correctness, Unsupported rate, Refusal accuracy)
 Outputs summary tables and writes results to the evaluation/ directory.
 """
