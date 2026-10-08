@@ -144,7 +144,7 @@ Implemented in `src/rerank.py`:
 ```text
 Query -> Baseline Dense Top-20 -> BGE-Reranker-v2-m3 -> Sigmoid Calibration -> Dynamic Evidence Pruning -> Top-5
 ```
-> **Scientific Integrity Statement**: The enhanced architecture differs from the baseline **strictly and exclusively** by adding multilingual cross-encoder reranking over the top-20 dense candidates. No query expansion, BM25, or multi-vector hybrids were introduced.
+> The enhanced architecture differs from the baseline **strictly and exclusively** by adding multilingual cross-encoder reranking over the top-20 dense candidates. No query expansion, BM25, or multi-vector hybrids were introduced.
 
 Key features:
 1. **Cross-Attention**: Full token-to-token attention between query and candidate passages.
@@ -327,8 +327,8 @@ Reproduce all results in five steps:
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/PetroChoice/bilingual-rag.git
-cd bilingual-rag
+git clone https://github.com/OmarKhalil2003/bi-RAG.git
+cd bi-RAG
 
 # 2. Create environment & install dependencies
 python -m venv .venv
