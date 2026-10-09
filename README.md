@@ -135,24 +135,44 @@ Here is a summary of the 10 failure cases observed during evaluation:
 
 ```text
 ├── app/
-│   ├── main.py          # FastAPI application & endpoints (/query, /health)
-│   ├── retrieval.py     # Hybrid search wrapper
-│   └── generation.py    # LLM prompt, citations, and dual refusal gates
+│   ├── main.py              # FastAPI application & endpoints (/query, /health)
+│   ├── schemas.py           # Pydantic request/response validation schemas
+│   ├── rag.py               # RAG pipeline coordinator
+│   ├── retrieval.py         # Hybrid search service wrapper
+│   ├── generation.py        # LLM prompt, citations, and dual refusal gates
+│   └── logging_config.py    # Structured JSON logger
 ├── src/
-│   ├── chunking.py      # 500-token paragraph-aware text chunker
-│   ├── indexing.py      # FAISS vector index generator
-│   └── hybrid.py        # BM25Okapi store & Reciprocal Rank Fusion
+│   ├── chunk.py             # 500-token paragraph-aware text chunker
+│   ├── embed.py             # BGE-M3 dense embeddings with L2 normalization
+│   ├── evaluate.py          # Metric calculations (Hit@k, MRR)
+│   ├── hybrid.py            # BM25Okapi store & Reciprocal Rank Fusion (RRF)
+│   ├── index.py             # FAISS IndexFlatIP vector store
+│   ├── ingest.py            # PDF text extraction and NFKC normalization
+│   ├── preprocess.py        # Canonical Arabic & English query preprocessing
+│   └── retrieve.py          # Baseline dense FAISS retriever
+├── data/
+│   ├── corpus_manifest.csv  # 24 documents metadata registry
+│   ├── raw/                 # 24 raw PDFs (12 Arabic, 12 English)
+│   ├── processed/           # 24 extracted JSON page texts
+│   ├── chunks.jsonl         # 72 token-bounded contextual chunks
+│   └── index.faiss          # Serialized FAISS IndexFlatIP vector index
 ├── scripts/
-│   ├── build_index.py       # Builds FAISS and BM25 indexes
-│   ├── download_corpus.py   # Ingests and generates 24 bilingual PDFs
-│   └── run_evaluation.py    # Evaluates retrieval, generation & refusal
+│   ├── build_index.py       # Ingests documents and builds FAISS index
+│   ├── create_gold_dataset.py # Generates 40-question gold benchmark
+│   ├── download_corpus.py   # Generates 24 bilingual reference PDFs
+│   ├── generate_report_docx.py # Builds 2-page assessment DOCX
+│   └── run_evaluation.py    # Executes retrieval and generation benchmarks
 ├── evaluation/
 │   ├── gold.jsonl           # 40 bilingual gold questions and answers
-│   ├── retrieval_results.json
-│   └── answer_evaluation_results.json
+│   ├── retrieval_results.json # Dense vs Hybrid retrieval metric output
+│   └── answer_evaluation_results.json # Generation correctness & refusal output
 ├── report/
-│   └── report.docx          # 2-page assessment summary report
-└── tests/                   # 13 automated unit tests
+│   ├── report.docx          # 2-page assessment summary report (Word)
+│   └── report.pdf           # 2-page assessment summary report (PDF)
+└── tests/
+    ├── test_api.py          # FastAPI endpoint integration tests
+    ├── test_chunking.py     # Tokenizer and chunk boundary tests
+    └── test_retrieval.py    # Dense & Hybrid retrieval tests (13 total)
 ```
 
 ---

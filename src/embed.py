@@ -12,6 +12,12 @@ from typing import List, Dict, Any, Tuple
 import numpy as np
 import torch
 from sentence_transformers import SentenceTransformer
+from dotenv import load_dotenv
+load_dotenv()
+
+# Synchronize HF_API_KEY into standard HF_TOKEN if needed
+if not os.getenv("HF_TOKEN") and os.getenv("HF_API_KEY"):
+    os.environ["HF_TOKEN"] = os.getenv("HF_API_KEY")
 
 DEFAULT_EMBED_MODEL = os.getenv("MODEL_NAME", "BAAI/bge-m3")
 

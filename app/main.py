@@ -20,6 +20,10 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 from dotenv import load_dotenv
 load_dotenv()
 
+# Synchronize HF_API_KEY into standard HF_TOKEN if needed
+if not os.getenv("HF_TOKEN") and os.getenv("HF_API_KEY"):
+    os.environ["HF_TOKEN"] = os.getenv("HF_API_KEY")
+
 from fastapi import FastAPI, Request, HTTPException, status
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware

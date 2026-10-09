@@ -3,7 +3,7 @@ RAG Pipeline Orchestrator
 Bilingual Document Q&A (RAG) System
 
 Coordinates retrieval and generation:
-Question -> Multilingual Retrieval (Dense top-20 + BGE Reranker top-5)
+Question -> Multilingual Hybrid Retrieval (Dense BGE-M3 + BM25 RRF)
          -> Confidence Gate & Evidence Assembly
          -> Language-preserving Generation with Citations / Refusal.
 """
@@ -50,5 +50,5 @@ class RAGPipeline:
             "citations": generation_result.get("citations", []),
             "latency_ms": generation_result.get("latency_ms"),
             "retrieved_chunk_ids": [c["chunk_id"] for c in retrieved_chunks],
-            "top_score": retrieved_chunks[0].get("reranker_score", retrieved_chunks[0].get("score", 0.0)) if retrieved_chunks else 0.0
+            "top_score": retrieved_chunks[0].get("rrf_score", retrieved_chunks[0].get("score", 0.0)) if retrieved_chunks else 0.0
         }
